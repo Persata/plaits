@@ -1,0 +1,4 @@
+# IntelliJ Project Folder
+.idea
+# Dependency directory
+node_modules

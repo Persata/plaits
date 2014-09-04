@@ -1,0 +1,39 @@
+{
+  "name": "plaits",
+  "description": "Facilitates the creation and validation of forms in Node applications.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/persata/plaits.git"
+  },
+  "author": "Ross Kinsman",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "main": "index.js",
+  "keywords": [
+    "express",
+    "form",
+    "validation",
+    "errors",
+    "promise",
+    "render"
+  ],
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "bluebird": "^2.3.2",
+    "inflection": "^1.4.1",
+    "lodash": "~2.4.1",
+    "moment": "~2.8.2",
+    "simple-extend": "^0.1.0",
+    "trigger-then": "~0.3.0",
+    "validator": "~3.17.1"
+  },
+  "devDependencies": {
+    "knex": "~0.6.3",
+    "mocha": "^1.21.4",
+    "should": "~4.0.1"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
