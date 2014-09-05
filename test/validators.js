@@ -529,9 +529,66 @@ describe('Plaits Individual Validation Functions', function () {
         // Functions
         Plaits.Validators.url()('www.github.com').should.equal(true);
         Plaits.Validators.url()('www.github.com/persata/plaits.git').should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Url - Invalid
+     */
+    it('should invalidate bad URL values', function (done) {
+        // Functions
         Plaits.Validators.url({require_protocol: true})('www.github.com/persata/plaits.git', 'GitHub URL').should.equal('GitHub URL must be a valid URL.');
         Plaits.Validators.url({protocols: ['http'], require_protocol: true})('www.github.com/persata/plaits.git', 'GitHub URL').should.equal('GitHub URL must be a valid URL.');
         // Done
         done();
+    });
+
+    /**
+     * Matching Property - Valid
+     */
+    it('should validate good matching properties', function (done) {
+        new (Plaits.Model.extend({
+            name: 'signup',
+            fields: [
+                'email_address',
+                'password',
+                'password_confirm'
+            ],
+            validators: {
+                password_confirm: Plaits.Validators.matchProperty('password')
+            }
+        }))().set({
+                password: 'test123',
+                password_confirm: 'test123'
+            }).validate().then(function (result) {
+                // Result
+                result.should.equal(true);
+            }).then(done, done);
+    });
+
+    /**
+     * Matching Property - Invalid
+     */
+    it('should invalidate bad matching properties', function (done) {
+        new (Plaits.Model.extend({
+            name: 'signup',
+            fields: [
+                'email_address',
+                'password',
+                'password_confirm'
+            ],
+            validators: {
+                password_confirm: Plaits.Validators.matchProperty('password')
+            }
+        }))().set({
+            password: 'test123',
+            password_confirm: 'test456'
+        }).validate().then(function (result) {
+            // Result
+            result.should.equal(false);
+            // Errors
+            this.getErrors('password_confirm').should.containEql('The value of Password Confirm must be the same as Password.');
+        }).then(done, done);
     });
 });
