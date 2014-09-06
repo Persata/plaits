@@ -489,7 +489,7 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad date values', function (done) {
         // Functions
-        Plaits.Validators.date()('', 'Birthday').should.equal('Birthday must be a valid date.');
+        Plaits.Validators.date()('2014/13/32', 'Birthday').should.equal('Birthday must be a valid date.');
         Plaits.Validators.date()('foo', 'Birthday').should.equal('Birthday must be a valid date.');
         Plaits.Validators.date()('GMT', 'Birthday').should.equal('Birthday must be a valid date.');
         // Done
