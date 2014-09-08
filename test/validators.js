@@ -489,7 +489,7 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad date values', function (done) {
         // Functions
-        Plaits.Validators.date()('', 'Birthday').should.equal('Birthday must be a valid date.');
+        Plaits.Validators.date()('2014/13/32', 'Birthday').should.equal('Birthday must be a valid date.');
         Plaits.Validators.date()('foo', 'Birthday').should.equal('Birthday must be a valid date.');
         Plaits.Validators.date()('GMT', 'Birthday').should.equal('Birthday must be a valid date.');
         // Done
@@ -591,4 +591,51 @@ describe('Plaits Individual Validation Functions', function () {
             this.getErrors('password_confirm').should.containEql('The value of Password Confirm must be the same as Password.');
         }).then(done, done);
     });
+
+    /**
+     * Int - Valid
+     */
+    it('should validate good int values', function (done) {
+        // Functions
+        Plaits.Validators.isInt()('5').should.equal(true);
+        Plaits.Validators.isInt()(10).should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Int - Invalid
+     */
+    it('should invalidate bad int values', function (done) {
+        // Functions
+        Plaits.Validators.isInt()('Word', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.isInt()('Not A Number', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.isInt()('NaN', 'Your age').should.equal('Your age must be an integer.');
+        // Done
+        done();
+    });
+
+    /**
+     * Int - Valid
+     */
+    it('should validate good float values', function (done) {
+        // Functions
+        Plaits.Validators.isFloat()('5').should.equal(true);
+        Plaits.Validators.isFloat()('5.0').should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Int - Invalid
+     */
+    it('should invalidate bad float values', function (done) {
+        // Functions
+        Plaits.Validators.isFloat()('Word', 'Your age').should.equal('Your age must be a valid floating point number.');
+        Plaits.Validators.isFloat()('Not A Number', 'Your age').should.equal('Your age must be a valid floating point number.');
+        Plaits.Validators.isFloat()('NaN', 'Your age').should.equal('Your age must be a valid floating point number.');
+        // Done
+        done();
+    });
+
 });

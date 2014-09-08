@@ -116,7 +116,7 @@ var goodValueRequestStub = {body: {loginForm_email_address: 'also_valid@example.
 /**
  * Bad Values To Test
  */
-var badValueRequestStub = {body: {loginForm_email_address: 'notavalidemailaddress', loginForm_password: ''}};
+var badValueRequestStub = {body: {loginForm_email_address: 'notavalidemailaddress', loginForm_password: 'p123'}};
 var badValueRequestStubEmailInUse = {body: {loginForm_email_address: 'ross@persata.com', loginForm_password: ''}};
 var badValueRequestStubPassword = {body: {loginForm_email_address: 'ross@persata.com', loginForm_password: '!'}};
 
