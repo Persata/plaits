@@ -38,7 +38,7 @@ var LoginFormRequired = LoginForm.extend({
 var requestStub = {body: {loginForm_email_address: '', loginForm_password: ''}};
 
 /**
- * Plaits Events Tests
+ * Plaits Required Tests
  */
 describe('Plaits Required Validators', function () {
 
