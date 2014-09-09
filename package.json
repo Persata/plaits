@@ -21,12 +21,12 @@
   "dependencies": {
     "backbone": "^1.1.2",
     "bluebird": "^2.3.2",
-    "inflection": "^1.4.1",
+    "inflection": "^1.4.2",
     "lodash": "~2.4.1",
-    "moment": "~2.8.2",
+    "moment": "~2.8.3",
     "simple-extend": "^0.1.0",
     "trigger-then": "~0.3.0",
-    "validator": "~3.17.1",
+    "validator": "~3.18",
     "inherits": "~2.0.1",
     "mmmagic": "~0.3.8"
   },
