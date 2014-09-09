@@ -27,7 +27,8 @@
     "simple-extend": "^0.1.0",
     "trigger-then": "~0.3.0",
     "validator": "~3.17.1",
-    "inherits": "~2.0.1"
+    "inherits": "~2.0.1",
+    "mmmagic": "~0.3.8"
   },
   "devDependencies": {
     "knex": "~0.6.3",
