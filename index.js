@@ -1,5 +1,8 @@
 'use strict';
 
+// Bluebird
+var Promise = require('bluebird');
+
 // Model
 var Model = require('./lib/model');
 
@@ -27,6 +30,12 @@ var Plaits = (function () {
      * @type {Validators|exports}
      */
     Plaits.Validators = Validators;
+
+    /**
+     * Promise for Convenience
+     * @type {Promise|*}
+     */
+    Plaits.Promise = Promise;
 
     /**
      * Extend

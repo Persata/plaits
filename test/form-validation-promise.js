@@ -6,6 +6,14 @@ var Plaits = require('../index');
 // Promise
 var Promise = require('bluebird');
 
+// Knex
+var Knex = require('knex');
+
+/**
+ * Knex Instance
+ */
+var knexInstance;
+
 /**
  * Model Name for Form Models
  * @type {string}
@@ -78,11 +86,15 @@ var LoginFormAsyncCustomValidationFunction = LoginFormAsyncAutomaticErrorMessage
     validators: {
         email_address: [
             function (value) {
-                if (value === 'ross@persata.com') {
-                    return 'That email address is already in use!';
-                } else {
-                    return true;
-                }
+                return new Promise(function (resolve) {
+                    knexInstance('users').select('email').where('email', '=', value).then(function(result) {
+                        if (result.length > 0) {
+                            return resolve('That email address is already in use!');
+                        } else {
+                            return resolve(true);
+                        }
+                    });
+                });
             }
         ]
     }
@@ -106,6 +118,20 @@ var LoginFormAsyncPromiseCustomValidationFunction = LoginFormAsyncAutomaticError
             }
         ]
     }
+});
+
+/**
+ * Before - Create Knex Instance
+ */
+before(function(done) {
+    // Knex Instance
+    knexInstance = Knex.initialize({
+        client: 'sqlite',
+        connection: {
+            filename: "test/files/test.db"
+        }
+    });
+    done();
 });
 
 /**
