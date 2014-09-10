@@ -1,7 +1,9 @@
 'use strict';
 
 // Bluebird
+/* jshint ignore:start */
 var Promise = require('bluebird');
+/* jshint ignore:end */
 
 // Model
 var Model = require('./lib/model');
