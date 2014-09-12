@@ -90,6 +90,20 @@ describe('Plaits Individual Validation Functions', function () {
     });
 
     /**
+     * Max Length - Invalid - Custom Message
+     */
+    it('should invalidate bad maximum lengths with custom error messages', function (done) {
+        // Function
+        var maxLengthValidator = Plaits.Validators.maxLength(6, '{{label}} has to be less than {{maxLength}} chars!');
+        // Get Result
+        var result = maxLengthValidator('Ross Kinsman', 'Name', {}, {});
+        // Check
+        result.should.equal('Name has to be less than 6 chars!');
+        // Done
+        done();
+    });
+
+    /**
      * Min Length - Valid
      */
     it('should validate good minimum length values', function (done) {
@@ -127,6 +141,48 @@ describe('Plaits Individual Validation Functions', function () {
         var result = betweenLengthValidator('Ross Kinsman');
         // Check
         result.should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Between Length - Invalid
+     */
+    it('should invalidate values that are not between a certain length', function (done) {
+        // Function
+        var betweenLengthValidator = Plaits.Validators.length(6, 12);
+        // Get Result
+        var result = betweenLengthValidator('Ross Robert Kinsman', 'Name');
+        // Check
+        result.should.equal('Name must be between 6 and 12 characters long.');
+        // Done
+        done();
+    });
+
+    /**
+     * Between Length - Valid - Custom Error Message
+     */
+    it('should validate values that are between a certain length when a custom error message is given', function (done) {
+        // Function
+        var betweenLengthValidator = Plaits.Validators.length(6, 12, '{{label}} has to be more than 6 and less than 12 characters.');
+        // Get Result
+        var result = betweenLengthValidator('Ross Kinsman', 'Name', {}, {});
+        // Check
+        result.should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Between Length - Invalid - Custom Error Message
+     */
+    it('should invalidate values that are not between a certain length with a custom error message', function (done) {
+        // Function
+        var betweenLengthValidator = Plaits.Validators.length(6, 12, '{{label}} has to be more than 6 and less than 12 characters.');
+        // Get Result
+        var result = betweenLengthValidator('Ross Robert Kinsman', 'Name', {}, {});
+        // Check
+        result.should.equal('Name has to be more than 6 and less than 12 characters.');
         // Done
         done();
     });
@@ -272,6 +328,34 @@ describe('Plaits Individual Validation Functions', function () {
     });
 
     /**
+     * IP Address - Valid - Any Version
+     */
+    it('should validate good IP address values of any version', function (done) {
+        // Function
+        var ipAddressValidator = Plaits.Validators.ipAddress();
+        // Get Result
+        var result = ipAddressValidator('127.0.0.1', 'IP Address');
+        // Check
+        result.should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * IP Address - Invalid - Any Version
+     */
+    it('should invalidate bad IP address values of any version', function (done) {
+        // Function
+        var ipAddressValidator = Plaits.Validators.ipAddress();
+        // Get Result
+        var result = ipAddressValidator('localhost', 'IP Address');
+        // Check
+        result.should.equal('IP Address must be a version 4 or 6 IP address.');
+        // Done
+        done();
+    });
+
+    /**
      * IP Address - Valid - Version 4
      */
     it('should validate good IP address version 4 values', function (done) {
@@ -323,6 +407,20 @@ describe('Plaits Individual Validation Functions', function () {
         var result = ipAddressValidator('localhost', 'IP Address');
         // Check
         result.should.equal('IP Address must be a version 6 IP address.');
+        // Done
+        done();
+    });
+
+    /**
+     * IP Address - Invalid - Specific Version & Custom Message
+     */
+    it('should invalidate bad IP address values of any version with a custom error message', function (done) {
+        // Function
+        var ipAddressValidator = Plaits.Validators.ipAddress(6, '{{label}} is not a valid IP address.');
+        // Get Result
+        var result = ipAddressValidator('localhost', 'IP Address', {}, {});
+        // Check
+        result.should.equal('IP Address is not a valid IP address.');
         // Done
         done();
     });
@@ -529,6 +627,9 @@ describe('Plaits Individual Validation Functions', function () {
         // Functions
         Plaits.Validators.url()('www.github.com').should.equal(true);
         Plaits.Validators.url()('www.github.com/persata/plaits.git').should.equal(true);
+        Plaits.Validators.url({require_protocol: true})('http://www.github.com/persata/plaits.git').should.equal(true);
+        Plaits.Validators.url('This must be a valid URL.')('www.github.com/persata/plaits.git').should.equal(true);
+        Plaits.Validators.url({}, 'This must be a valid URL.')('www.github.com/persata/plaits.git', 'GitHub URL', {}, {}).should.equal(true);
         // Done
         done();
     });
@@ -538,8 +639,11 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad URL values', function (done) {
         // Functions
+        Plaits.Validators.url('This must be a valid URL.')('persata', 'GitHub URL', {}, {}).should.equal('This must be a valid URL.');
+        Plaits.Validators.url()('persata', 'GitHub URL').should.equal('GitHub URL must be a valid URL.');
         Plaits.Validators.url({require_protocol: true})('www.github.com/persata/plaits.git', 'GitHub URL').should.equal('GitHub URL must be a valid URL.');
         Plaits.Validators.url({protocols: ['http'], require_protocol: true})('www.github.com/persata/plaits.git', 'GitHub URL').should.equal('GitHub URL must be a valid URL.');
+        Plaits.Validators.url({protocols: ['http'], require_protocol: true}, 'This must be a valid non-secure URL.')('www.github.com/persata/plaits.git', 'GitHub URL', {}, {}).should.equal('This must be a valid non-secure URL.');
         // Done
         done();
     });
@@ -611,6 +715,7 @@ describe('Plaits Individual Validation Functions', function () {
         Plaits.Validators.isInt()('Word', 'Your age').should.equal('Your age must be an integer.');
         Plaits.Validators.isInt()('Not A Number', 'Your age').should.equal('Your age must be an integer.');
         Plaits.Validators.isInt()('NaN', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.isInt('{{label}} should be like this: 26')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 26');
         // Done
         done();
     });
@@ -631,9 +736,10 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad float values', function (done) {
         // Functions
-        Plaits.Validators.isFloat()('Word', 'Your age').should.equal('Your age must be a valid floating point number.');
-        Plaits.Validators.isFloat()('Not A Number', 'Your age').should.equal('Your age must be a valid floating point number.');
-        Plaits.Validators.isFloat()('NaN', 'Your age').should.equal('Your age must be a valid floating point number.');
+        Plaits.Validators.isFloat()('Word', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.isFloat()('Not A Number', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.isFloat()('NaN', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.isFloat('{{label}} should be like this: 54.5')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 54.5');
         // Done
         done();
     });
