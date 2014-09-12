@@ -2,3 +2,5 @@
 .idea
 # Dependency directory
 node_modules
+# Istanbul Coverage Folder
+coverage
