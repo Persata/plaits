@@ -3,6 +3,7 @@ Plaits
 
 [![Build Status](https://travis-ci.org/Persata/plaits.svg)](https://travis-ci.org/Persata/plaits)
 [![Dependency Status](https://gemnasium.com/Persata/plaits.svg)](https://gemnasium.com/Persata/plaits)
+[![Coverage Status](https://img.shields.io/coveralls/Persata/plaits.svg)](https://coveralls.io/r/Persata/plaits?branch=master)
 
 Plaits is a form creation & validation library for Node.js / Express.
 
