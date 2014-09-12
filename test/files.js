@@ -38,9 +38,7 @@ var ProfileFormWildCardRegex = ProfileForm.extend({
             Plaits.Validators.File.required(),
             Plaits.Validators.File.minSize('100kB'),
             Plaits.Validators.File.maxSize('200kB'),
-            Plaits.Validators.File.mimeTypes([
-                'image/*'
-            ])
+            Plaits.Validators.File.mimeTypes('image/*')
         ]
     }
 });
@@ -72,6 +70,10 @@ var filesBadValueRequestStubTooLarge = {files: {profileForm_avatar: {name: 'me.j
 var filesBadValueRequestStubInvalidType = {files: {profileForm_avatar: {name: 'you.zip', originalFilename: 'you.zip', path: '/var/tmp/9911-lpnc5.zip', size: 166258, type: 'application/zip'}}};
 var fileGoodValuesRequestStubIncorrectMimeInspect = {files: {profileForm_avatar: {name: 'plaits.jpg', originalFilename: 'plaits.jpg', path: 'test/files/plaits.jpg', size: 166258, type: 'image/jpeg'}}};
 
+/**
+ * File Upload Reject Promise
+ */
+var fileGoodValuesRequestStubPromiseReject = {files: {profileForm_avatar: {name: 'plaits-logo.jpg', originalFilename: 'plaits-logo.jpg', path: 'test/files/plaits-logo.jpg', size: 166258, type: 'image/jpeg'}}};
 
 /**
  * Plaits File Tests
@@ -207,6 +209,15 @@ describe('Plaits File Validators', function () {
             result.should.equal(false);
             // Check Error
             this.getErrors('avatar').should.containEql('The MIME Type of Avatar does not match its contents.');
+        }).then(done, done);
+    });
+
+    /**
+     * Enforce MIME Match - Exception - Promise Rejection
+     */
+    it('should reject the promise if there is an issue with LibMagic', function (done) {
+        new ProfileFormEnforceMimeType().parseRequestSync(fileGoodValuesRequestStubPromiseReject).validate().then().catch(function (error) {
+            error.message.should.startWith('cannot stat');
         }).then(done, done);
     });
 });

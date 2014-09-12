@@ -33,6 +33,18 @@ var LoginFormRequired = LoginForm.extend({
 });
 
 /**
+ * With Required & Custom Error
+ */
+var LoginFormRequiredWithCustomError = LoginForm.extend({
+    validators: {
+        email_address: [
+            Plaits.Validators.required('An {{label}} must be provided!'),
+            Plaits.Validators.email()
+        ]
+    }
+});
+
+/**
  * Good Values to Test
  */
 var requestStub = {body: {loginForm_email_address: '', loginForm_password: ''}};
@@ -58,6 +70,16 @@ describe('Plaits Required Validators', function () {
         new LoginFormRequired().parseRequestSync(requestStub).validate().then(function (result) {
             result.should.equal(false);
             this.getErrors('email_address').should.containEql('Email Address is a required field.');
+        }).then(done, done);
+    });
+
+    /**
+     * Required Specified With Custom Error Message
+     */
+    it('should not allow empty values when the required option is specified and return a custom error message', function (done) {
+        new LoginFormRequiredWithCustomError().parseRequestSync(requestStub).validate().then(function (result) {
+            result.should.equal(false);
+            this.getErrors('email_address').should.containEql('An Email Address must be provided!');
         }).then(done, done);
     });
 });

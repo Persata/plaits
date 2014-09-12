@@ -68,6 +68,12 @@ var LoginForm = Plaits.Model.extend({
 var goodValueRequestStub = {body: {loginForm_email_address: 'also_valid@example.com', loginForm_password: 'password456'}};
 
 /**
+ * Good Values, Using GET
+ * @type {{body: {loginForm_email_address: string, loginForm_password: string}}}
+ */
+var goodValueRequestStubGet = {query: {loginForm_email_address: 'also_valid@example.com', loginForm_password: 'password456'}};
+
+/**
  * Base Library Tests
  */
 describe('Plaits', function () {
@@ -196,6 +202,27 @@ describe('Plaits', function () {
      */
     it('should parse request body and parameters asynchronously', function (done) {
         new LoginForm().parseRequest(goodValueRequestStub).then(function (loginForm) {
+            loginForm.get('email_address').should.equal('also_valid@example.com');
+            loginForm.get('password').should.equal('password456');
+            done();
+        });
+    });
+
+    /**
+     * Parse Sync Test - GET / Query String
+     */
+    it('should parse request body and parameters synchronously when required', function (done) {
+        var loginForm = new LoginForm().parseRequestSync(goodValueRequestStubGet);
+        loginForm.get('email_address').should.equal('also_valid@example.com');
+        loginForm.get('password').should.equal('password456');
+        done();
+    });
+
+    /**
+     * Parse Async Test - GET / Query String
+     */
+    it('should parse request body and parameters asynchronously', function (done) {
+        new LoginForm().parseRequest(goodValueRequestStubGet).then(function (loginForm) {
             loginForm.get('email_address').should.equal('also_valid@example.com');
             loginForm.get('password').should.equal('password456');
             done();

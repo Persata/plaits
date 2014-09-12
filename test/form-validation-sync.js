@@ -17,10 +17,7 @@ var modelName = 'loginForm';
  * @type {{email_address: *[]}}
  */
 var modelValidatorsAutomaticErrorMessages = {
-    email_address: [
-        Plaits.Validators.email(),
-        Plaits.Validators.required()
-    ],
+    email_address: Plaits.Validators.email(),
     password: [
         Plaits.Validators.minLength(6),
         Plaits.Validators.maxLength(18)

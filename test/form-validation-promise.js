@@ -86,14 +86,12 @@ var LoginFormAsyncCustomValidationFunction = LoginFormAsyncAutomaticErrorMessage
     validators: {
         email_address: [
             function (value) {
-                return new Promise(function (resolve) {
-                    knexInstance('users').select('email').where('email', '=', value).then(function(result) {
-                        if (result.length > 0) {
-                            return resolve('That email address is already in use!');
-                        } else {
-                            return resolve(true);
-                        }
-                    });
+                return knexInstance('users').select('email').where('email', '=', value).then(function(result) {
+                    if (result.length > 0) {
+                        return 'That email address is already in use!';
+                    } else {
+                        return true;
+                    }
                 });
             }
         ]
