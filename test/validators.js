@@ -482,11 +482,11 @@ describe('Plaits Individual Validation Functions', function () {
     });
 
     /**
-     * Is In - Valid
+     * One Of - Valid
      */
     it('should validate good values that are part of the allowed values', function (done) {
         // Function
-        var isInValidator = Plaits.Validators.isIn(['Ross', 'Persata']);
+        var isInValidator = Plaits.Validators.oneOf(['Ross', 'Persata']);
         // Get Result
         var result = isInValidator('Ross');
         // Check
@@ -500,7 +500,7 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad values that are not part of the allowed values', function (done) {
         // Function
-        var isInValidator = Plaits.Validators.isIn(['Ross', 'Persata']);
+        var isInValidator = Plaits.Validators.oneOf(['Ross', 'Persata']);
         // Get Result
         var result = isInValidator('5570979378786890', 'Your name');
         // Check
@@ -701,8 +701,8 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should validate good int values', function (done) {
         // Functions
-        Plaits.Validators.isInt()('5').should.equal(true);
-        Plaits.Validators.isInt()(10).should.equal(true);
+        Plaits.Validators.int()('5').should.equal(true);
+        Plaits.Validators.int()(10).should.equal(true);
         // Done
         done();
     });
@@ -712,10 +712,10 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad int values', function (done) {
         // Functions
-        Plaits.Validators.isInt()('Word', 'Your age').should.equal('Your age must be an integer.');
-        Plaits.Validators.isInt()('Not A Number', 'Your age').should.equal('Your age must be an integer.');
-        Plaits.Validators.isInt()('NaN', 'Your age').should.equal('Your age must be an integer.');
-        Plaits.Validators.isInt('{{label}} should be like this: 26')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 26');
+        Plaits.Validators.int()('Word', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.int()('Not A Number', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.int()('NaN', 'Your age').should.equal('Your age must be an integer.');
+        Plaits.Validators.int('{{label}} should be like this: 26')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 26');
         // Done
         done();
     });
@@ -725,8 +725,8 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should validate good float values', function (done) {
         // Functions
-        Plaits.Validators.isFloat()('5').should.equal(true);
-        Plaits.Validators.isFloat()('5.0').should.equal(true);
+        Plaits.Validators.float()('5').should.equal(true);
+        Plaits.Validators.float()('5.0').should.equal(true);
         // Done
         done();
     });
@@ -736,10 +736,10 @@ describe('Plaits Individual Validation Functions', function () {
      */
     it('should invalidate bad float values', function (done) {
         // Functions
-        Plaits.Validators.isFloat()('Word', 'Your weight').should.equal('Your weight must be a valid floating point number.');
-        Plaits.Validators.isFloat()('Not A Number', 'Your weight').should.equal('Your weight must be a valid floating point number.');
-        Plaits.Validators.isFloat()('NaN', 'Your weight').should.equal('Your weight must be a valid floating point number.');
-        Plaits.Validators.isFloat('{{label}} should be like this: 54.5')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 54.5');
+        Plaits.Validators.float()('Word', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.float()('Not A Number', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.float()('NaN', 'Your weight').should.equal('Your weight must be a valid floating point number.');
+        Plaits.Validators.float('{{label}} should be like this: 54.5')('NaN', 'Your weight', {}, {}).should.equal('Your weight should be like this: 54.5');
         // Done
         done();
     });
