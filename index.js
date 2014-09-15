@@ -11,6 +11,9 @@ var Model = require('./lib/model');
 // Validators
 var Validators = require('./lib/validators');
 
+// Express Middleware
+var ExpressMiddleware = require('./lib/middleware');
+
 // Plaits
 var Plaits = (function () {
 
@@ -38,6 +41,12 @@ var Plaits = (function () {
      * @type {Promise|*}
      */
     Plaits.Promise = Promise;
+
+    /**
+     * Express Middleware
+     * @type {*|exports}
+     */
+    Plaits.expressMiddleware = ExpressMiddleware;
 
     /**
      * Extend

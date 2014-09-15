@@ -18,7 +18,7 @@ var ProfileForm = Plaits.Model.extend({
         avatar: [
             Plaits.Validators.File.required(),
             Plaits.Validators.File.minSize('100kB'),
-            Plaits.Validators.File.maxSize('200kB'),
+            Plaits.Validators.File.maxSize(200 * 1024),
             Plaits.Validators.File.mimeTypes([
                 'image/jpg',
                 'image/jpeg',
