@@ -60,6 +60,11 @@ var RegisterForm = Plaits.Model.extend({
     ageOptionsUndefined: {
         undefined: 'Choose Your Age',
         25: 'Twenty Five'
+    },
+    ageOptionsOnlyValues: {
+        25: 25,
+        26: 26,
+        27: 27
     }
 });
 
@@ -624,6 +629,100 @@ describe('Plaits Express Middleware & HTML Helper', function () {
         });
         // Send Request
         request(app).get('/single-checkbox').expect(200, done);
+    });
+
+    /**
+     * Multiple Checkbox Test
+     */
+    it('should generate multiple checkboxes using the html helper', function (done) {
+        // Add Test Route
+        app.get('/multiple-checkbox', function (req, res) {
+            // Register Form
+            var registerForm = new RegisterForm();
+            // Generate
+            var checkboxList = res.locals.Plaits.Html.checkboxListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            checkboxList.should.equal('<label><input type="checkbox" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input type="checkbox" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input type="checkbox" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // Check
+            registerForm.set('age', ['25', '26']);
+            // Generate
+            var checkedCheckboxList = res.locals.Plaits.Html.checkboxListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            checkedCheckboxList.should.equal('<label><input type="checkbox" checked="checked" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input type="checkbox" checked="checked" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input type="checkbox" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // Error
+            registerForm.set('age', []);
+            registerForm.addError('age', 'Please choose your age');
+            // Generate
+            var errorCheckboxList = res.locals.Plaits.Html.checkboxListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            errorCheckboxList.should.equal('<label><input class="error" type="checkbox" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input class="error" type="checkbox" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input class="error" type="checkbox" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // End Response
+            res.end();
+        });
+        // Send Request
+        request(app).get('/multiple-checkbox').expect(200, done);
+    });
+
+    /**
+     * Multiple Radio Test
+     */
+    it('should generate multiple radios using the html helper', function (done) {
+        // Add Test Route
+        app.get('/multiple-radio', function (req, res) {
+            // Register Form
+            var registerForm = new RegisterForm();
+            // Generate
+            var radioList = res.locals.Plaits.Html.radioListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            radioList.should.equal('<label><input type="radio" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input type="radio" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input type="radio" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // Check
+            registerForm.set('age', '26');
+            // Generate
+            var checkedRadioList = res.locals.Plaits.Html.radioListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            checkedRadioList.should.equal('<label><input type="radio" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input type="radio" checked="checked" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input type="radio" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // Error
+            registerForm.set('age', null);
+            registerForm.addError('age', 'Please choose your age');
+            // Generate
+            var errorRadioList = res.locals.Plaits.Html.radioListFor(registerForm, 'age', registerForm.ageOptionsOnlyValues);
+            // Test
+            errorRadioList.should.equal('<label><input class="error" type="radio" value="25" name="registerForm_age" id="registerForm_age_1" />25</label>\n' +
+            '<br />\n' +
+            '<label><input class="error" type="radio" value="26" name="registerForm_age" id="registerForm_age_2" />26</label>\n' +
+            '<br />\n' +
+            '<label><input class="error" type="radio" value="27" name="registerForm_age" id="registerForm_age_3" />27</label>\n');
+
+            // End Response
+            res.end();
+        });
+        // Send Request
+        request(app).get('/multiple-radio').expect(200, done);
     });
 
     /**

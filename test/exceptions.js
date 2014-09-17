@@ -41,12 +41,18 @@ describe('Plaits Exceptions', function () {
         // Try To Get Errors for Field
         (function () {
             loginForm.getErrors('email');
-        }).should.throw();
+        }).should.throw("Field 'email' Not Found In Model 'loginForm'");
 
         // Try To Use hasErrors for Field
         (function () {
             loginForm.hasErrors('email');
-        }).should.throw();
+        }).should.throw("Field 'email' Not Found In Model 'loginForm'");
+
+        // Try To Use getFirstError for Field
+        (function () {
+            loginForm.getFirstError('email');
+        }).should.throw("Field 'email' Not Found In Model 'loginForm'");
+
         // Done
         return done();
     });
@@ -87,5 +93,21 @@ describe('Plaits Exceptions', function () {
             // Done
             return done();
         });
+    });
+
+    /**
+     * Throw Error on Length Validator Given Too Many Params
+     */
+    it('should throw an error if the length validator is given wrong parameters', function (done) {
+        // Run Too Long
+        (function () {
+            Plaits.Validators.length(1, 2, 3, 'go!')();
+        }).should.throw('Too many arguments specified for length validator.');
+        // Run None
+        (function () {
+            Plaits.Validators.length()();
+        }).should.throw('Not enough arguments specified for length validator - must specify at least one argument.');
+        // Done
+        return done();
     });
 });
