@@ -64,6 +64,14 @@ describe('Plaits Required Validators', function () {
     });
 
     /**
+     * Required Not Specified - Check
+     */
+    it('should report a field as not required if it is not required', function (done) {
+        new LoginForm().isRequired('password').should.equal(false);
+        done();
+    });
+
+    /**
      * Required Specified
      */
     it('should not allow empty values when the required option is specified', function (done) {
