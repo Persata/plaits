@@ -28,7 +28,8 @@
     "trigger-then": "~0.3.0",
     "validator": "~3.18",
     "inherits": "~2.0.1",
-    "mmmagic": "~0.3.8"
+    "mmmagic": "~0.3.8",
+    "jade": "~1.7.0"
   },
   "devDependencies": {
     "istanbul": "^0.3.2",
