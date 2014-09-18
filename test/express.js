@@ -71,7 +71,7 @@ var RegisterForm = Plaits.Model.extend({
 // Before
 before(function (done) {
     // Use Middleware
-    app.use(Plaits.expressMiddleware());
+    app.use(new Plaits.ExpressMiddleware(app));
     // Done
     done();
 });

@@ -5,7 +5,7 @@ var app = express();
 
 // Set Views Path
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'nunjucks');
 
 // Export App
 module.exports = app;
