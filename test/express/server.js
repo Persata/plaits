@@ -1,11 +1,11 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var Plaits = require('../../index');
 var app = express();
 
-// Set Views Path
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// Basic Express Middleware
+app.use(new Plaits.ExpressMiddleware(app));
 
 // Export App
 module.exports = app;
