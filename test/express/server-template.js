@@ -7,6 +7,9 @@ var app = express();
 // New Middleware With Some Custom Options
 var expressMiddleware = new Plaits.ExpressMiddleware(app, {
     templatePaths: path.join(__dirname, '..', 'templates'),
+    additionalTemplates: [
+        ''
+    ],
     errorCssClass: 'error has-error',
     requiredCssClass: 'required req'
 });

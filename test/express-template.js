@@ -47,36 +47,21 @@ describe('Plaits Express Middleware HTML Template Helper', function () {
     });
 
     /**
-     * Middleware Test
+     * Template Tests
      */
     it('should generate a text field template for a specific model and attribute', function (done) {
         // Add Test Route
-        app.get('/text-field-template', function (req, res) {
+        app.get('/text-field', function (req, res) {
             // Register Form
             var registerForm = new RegisterForm();
-
-            // Generate
-            var textFieldTemplate = res.locals.Plaits.Html.Template.textField(registerForm, 'username');
-            // Test
-            textFieldTemplate.should.equal('<div class="form-row row"><label class="required req" for="registerForm_username">Username<span>*</span></label><input type="text" name="registerForm_username" value="" class="required req" id="registerForm_username" /></div>');
-
             // Set Value
             registerForm.set('username', 'Persata456');
-            // Add Error
-            registerForm.addError('username', 'Username cannot contain numbers');
-            // Generate
-            var textFieldTemplateWithError = res.locals.Plaits.Html.Template.textField(registerForm, 'username');
-            // Test
-            textFieldTemplateWithError.should.equal('<div class="form-row row"><label class="required req error has-error" for="registerForm_username">Username<span>*</span></label><input type="text" name="registerForm_username" value="Persata456" class="required req error has-error" id="registerForm_username" /><div class="error-summary">\n' +
-            '<ul>\n' +
-            '<li>Username cannot contain numbers</li>\n' +
-            '</ul>\n' +
-            '</div></div>');
+            // Generate Templates
 
             // End Response
             res.end();
         });
         // Send Request
-        request(app).get('/text-field-template').expect(200, done);
+        request(app).get('/text-field').expect(200, done);
     });
 });
