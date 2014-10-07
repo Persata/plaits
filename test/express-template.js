@@ -47,7 +47,7 @@ describe('Plaits Express Middleware HTML Template Helper', function () {
     });
 
     /**
-     * Template Tests
+     * Text Template Test
      */
     it('should generate a text field template for a specific model and attribute', function (done) {
         // Add Test Route
@@ -56,8 +56,10 @@ describe('Plaits Express Middleware HTML Template Helper', function () {
             var registerForm = new RegisterForm();
             // Set Value
             registerForm.set('username', 'Persata456');
-            // Generate Templates
-
+            // Generate Template
+            var text = res.locals.Plaits.Html.Template.text(registerForm, 'username');
+            // Check
+            text.should.equal('<div class="form-row"><label class="required req" for="registerForm_username">Username<span>*</span></label><input type="text" name="registerForm_username" value="Persata456" class="required req" id="registerForm_username" /></div>');
             // End Response
             res.end();
         });

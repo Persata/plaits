@@ -5,7 +5,7 @@ var Plaits = require('../../index');
 var app = express();
 
 // Basic Express Middleware
-app.use(new Plaits.ExpressMiddleware(app));
+app.use(new Plaits.ExpressMiddleware());
 
 // Export App
 module.exports = app;
