@@ -253,13 +253,13 @@ describe('Plaits Express Middleware & HTML Helper', function () {
             // Generate
             var textArea = res.locals.Plaits.Html.textAreaFor(registerForm, 'job_description');
             // Test
-            textArea.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description"></textarea>');
+            textArea.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description" class="required"></textarea>');
             // Set Value
             registerForm.set('job_description', 'Web Developer');
             // Generate
             var textAreaWithValue = res.locals.Plaits.Html.textAreaFor(registerForm, 'job_description');
             // Test
-            textAreaWithValue.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description">Web Developer</textarea>');
+            textAreaWithValue.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description" class="required">Web Developer</textarea>');
             // End Response
             res.end();
         });
