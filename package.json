@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "backbone": "^1.1.2",
-    "bluebird": "^2.3.2",
+    "bluebird": "^2.3.4",
     "inflection": "^1.4.2",
     "lodash": "~2.4.1",
     "moment": "~2.8.3",
@@ -36,7 +36,6 @@
     "istanbul": "^0.3.2",
     "knex": "~0.6.3",
     "mocha": "^1.21.4",
-    "nunjucks": "^1.0.7",
     "should": "~4.0.1",
     "sqlite3": "~2.2.7",
     "supertest": "~0.13.0"
