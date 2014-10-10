@@ -217,7 +217,7 @@ describe('Plaits Express Middleware HTML Template Helper', function () {
     /**
      * Text Area Template Test
      */
-    it('should generate a password field template for a specific model and attribute', function (done) {
+    it('should generate a text area field template for a specific model and attribute', function (done) {
         // Add Test Route
         app.get('/text-area-template', function (req, res) {
             // Register Form
