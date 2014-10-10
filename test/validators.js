@@ -202,6 +202,24 @@ describe('Plaits Individual Validation Functions', function () {
     });
 
     /**
+     * Exact Length - Custom Error Message
+     */
+    it('should validate values that are exactly a certain length', function (done) {
+        // Function
+        var exactLengthValidator = Plaits.Validators.length(4, 'Exactly 4 characters please!');
+        // Get Result
+        var result = exactLengthValidator('Ross');
+        // Check
+        result.should.equal(true);
+        // Invalid
+        var invalidResult = exactLengthValidator('R', 'Name', {}, {});
+        // Check
+        invalidResult.should.equal('Exactly 4 characters please!');
+        // Done
+        done();
+    });
+
+    /**
      * Exact Length - Invalid
      */
     it('should invalidate values that are not exactly a certain length', function (done) {
