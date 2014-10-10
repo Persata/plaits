@@ -46,7 +46,7 @@ var Plaits = (function () {
      * Express Middleware
      * @type {*|exports}
      */
-    Plaits.expressMiddleware = ExpressMiddleware;
+    Plaits.ExpressMiddleware = ExpressMiddleware;
 
     /**
      * Extend
