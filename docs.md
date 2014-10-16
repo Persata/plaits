@@ -119,118 +119,105 @@ You can use the string ```{{label}}``` in your custom error messages to have the
 for example the string '{{label}} must be a minimum of 10 characters' could produce 'Your password must be a minimum of 10 characters'.
 
 ## Required [/]
-```
-required(customErrorMessage)
-```
 Whether this field is required.
 
 In most cases, this will check whether the value is null or not - null values are considered invalid.
 
 When generating labels using the Html helpers and templates, the label text will be appended with an asterisk.
+```
+required(customErrorMessage)
+```
 
 ## Email [/]
+Checks if the provided value is an email address.
 ```
 email(customErrorMessage)
 ```
-Checks if the provided value is an email address.
 
 ## Minimum Length [/]
+Checks that the value matches or exceeds the minimum length provided.
 ```
 minLength(minLength, customErrorMessage)
 ```
 
-Checks that the value matches or exceeds the minimum length provided.
-
 ## Maximum Length [/]
+Checks that the value matches or is less than the maximum length provided.
 ```
 maxLength(maxLength, customErrorMessage)
 ```
-
-Checks that the value matches or is less than the maximum length provided.
 
 ## Length [/]
 ```
 length(args...)
 ```
 ## Numeric [/]
+Ensures the value provided is a numeric value.
 ```
 numeric(customErrorMessage)
 ```
 
-Ensures the value provided is a numeric value.
-
 ## Alpha [/]
+Ensures the value provided only contains letters.
 ```
 alpha(customErrorMessage)
 ```
 
-Ensures the value provided only contains letters.
-
 ## Alphanumeric [/]
+Ensures the value provided only contains letters and numbers.
 ```
 alphanumeric(customErrorMessage)
 ```
-
-Ensures the value provided only contains letters and numbers.
 
 ## Url [/]
 ```
 url(args...)
 ```
+
 ## IP Address [/]
 ```
 ipAddress(args...)
 ```
+
 ## Credit Card [/]
+Ensures the value provided is a valid credit card number.
 ```
 creditCard(customErrorMessage)
 ```
 
-Ensures the value provided is a valid credit card number.
-
 ## Equals [/]
+When provided with an ```equalValue``` parameter, this will make sure the value provided to the form equals the ```equalValue``` provided.
 ```
 equals(equalValue, customErrorMessage)
 ```
 
-When provided with an ```equalValue``` parameter, this will make sure the value provided to the form equals the ```equalValue``` provided.
-
 ## One Of [/]
+This validator should be passed an array of acceptable values, and if the value provided to the form for validation is one of those, it will pass validation.
 ```
 oneOf(allowedValues, customErrorMessage)
 ```
 
-This validator should be passed an array of acceptable values, and if the value provided to the form for validation is one of those, it will pass validation.
-
 ## Contains [/]
+This validator should be passed a string as the first parameter.
+If the value provided to the form for validation contains this value as a substring, it will pass validation.
 ```
 contains(containsValue, customErrorMessage)
 ```
 
-This validator should be passed a string as the first parameter.
-If the value provided to the form for validation contains this value as a substring, it will pass validation.
-
 ## Matches [/]
+This validator should be passed a regex as the first parameter.
+If the value provided to the form for validation matches this regex, it will pass validation.
 ```
 matches(regexValue, customErrorMessage)
 ```
 
-This validator should be passed a regex as the first parameter.
-If the value provided to the form for validation matches this regex, it will pass validation.
-
 ## Date [/]
+This validator will loosely check that the provided value for validation is a date.
+It can be of any format, even a Unix timestamp.
 ```
 date(customErrorMessage)
 ```
 
-This validator will loosely check that the provided value for validation is a date.
-It can be of any format, even a Unix timestamp.
-
 ## Date with Specific Format [/]
-```
-dateForm(dateFormat, customErrorMessage)
-```
-
 This validator should be provided a date format string.
 
 It will check that the value provided to the form for validation is a valid date, and is in the format specified.
@@ -238,31 +225,31 @@ It will check that the value provided to the form for validation is a valid date
 This validator is backended by the [moment.js library](https://github.com/moment/moment/).
 
 When specifying a custom error message, you may use ```{{dateFormat}}``` to have the specified format injected into your custom error message.
+```
+dateForm(dateFormat, customErrorMessage)
+```
 
 ## Match Another Property / Field [/]
-```
-matchProperty(propertyKey, customErrorMessage)
-```
-
 This validator takes a property key as the first parameter.
 
 When validation runs, it will check that the value provided to the form for validation is the same as the value of the given property.
 
 This is usually used for comparing password & confirm password fields [(see the example above)](#form-models).
+```
+matchProperty(propertyKey, customErrorMessage)
+```
 
 ## Int [/]
+This validator will check that the value provided to the form is an integer.
 ```
 int(customErrorMessage)
 ```
 
-This validator will check that the value provided to the form is an integer.
-
 ## Float [/]
+This validator will check that the value provided to the form is floating point number.
 ```
 float(customErrorMessage)
 ```
-
-This validator will check that the value provided to the form is floating point number.
 
 # Group Custom Validators
 

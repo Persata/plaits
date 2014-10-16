@@ -226,54 +226,54 @@ what the minimum length should be.</p>
 <h4 id="provided-validators-custom-error-messages">Custom Error Messages&nbsp;<a href="#provided-validators-custom-error-messages"><i class="fa fa-link"></i></a></h4><p>All built in validators take an optional custom error message if you wish to override the default error message.</p>
 <p>You can use the string <code>{{label}}</code> in your custom error messages to have the label for the field automatically inserted,
 for example the string ‘{{label}} must be a minimum of 10 characters’ could produce ‘Your password must be a minimum of 10 characters’.</p>
-<h4 id="provided-validators-required">Required&nbsp;<a href="#provided-validators-required"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">required</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Whether this field is required.</p>
+<h4 id="provided-validators-required">Required&nbsp;<a href="#provided-validators-required"><i class="fa fa-link"></i></a></h4><p>Whether this field is required.</p>
 <p>In most cases, this will check whether the value is null or not - null values are considered invalid.</p>
 <p>When generating labels using the Html helpers and templates, the label text will be appended with an asterisk.</p>
-<h4 id="provided-validators-email">Email&nbsp;<a href="#provided-validators-email"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">email</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Checks if the provided value is an email address.</p>
-<h4 id="provided-validators-minimum-length">Minimum Length&nbsp;<a href="#provided-validators-minimum-length"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">minLength</span><span class="hljs-params">(minLength, customErrorMessage)</span></span>
-</code></pre><p>Checks that the value matches or exceeds the minimum length provided.</p>
-<h4 id="provided-validators-maximum-length">Maximum Length&nbsp;<a href="#provided-validators-maximum-length"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">maxLength</span><span class="hljs-params">(maxLength, customErrorMessage)</span></span>
-</code></pre><p>Checks that the value matches or is less than the maximum length provided.</p>
-<h4 id="provided-validators-length">Length&nbsp;<a href="#provided-validators-length"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">length</span><span class="hljs-params">(args...)</span></span>
-</code></pre><h4 id="provided-validators-numeric">Numeric&nbsp;<a href="#provided-validators-numeric"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">numeric</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Ensures the value provided is a numeric value.</p>
-<h4 id="provided-validators-alpha">Alpha&nbsp;<a href="#provided-validators-alpha"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">alpha</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Ensures the value provided only contains letters.</p>
-<h4 id="provided-validators-alphanumeric">Alphanumeric&nbsp;<a href="#provided-validators-alphanumeric"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">alphanumeric</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Ensures the value provided only contains letters and numbers.</p>
-<h4 id="provided-validators-url">Url&nbsp;<a href="#provided-validators-url"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">url</span><span class="hljs-params">(args...)</span></span>
+<pre><code><span class="hljs-function"><span class="hljs-title">required</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-email">Email&nbsp;<a href="#provided-validators-email"><i class="fa fa-link"></i></a></h4><p>Checks if the provided value is an email address.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">email</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-minimum-length">Minimum Length&nbsp;<a href="#provided-validators-minimum-length"><i class="fa fa-link"></i></a></h4><p>Checks that the value matches or exceeds the minimum length provided.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">minLength</span><span class="hljs-params">(minLength, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-maximum-length">Maximum Length&nbsp;<a href="#provided-validators-maximum-length"><i class="fa fa-link"></i></a></h4><p>Checks that the value matches or is less than the maximum length provided.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">maxLength</span><span class="hljs-params">(maxLength, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-length">Length&nbsp;<a href="#provided-validators-length"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">length</span><span class="hljs-params">(args...)</span></span>
+</code></pre><h4 id="provided-validators-numeric">Numeric&nbsp;<a href="#provided-validators-numeric"><i class="fa fa-link"></i></a></h4><p>Ensures the value provided is a numeric value.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">numeric</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-alpha">Alpha&nbsp;<a href="#provided-validators-alpha"><i class="fa fa-link"></i></a></h4><p>Ensures the value provided only contains letters.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">alpha</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-alphanumeric">Alphanumeric&nbsp;<a href="#provided-validators-alphanumeric"><i class="fa fa-link"></i></a></h4><p>Ensures the value provided only contains letters and numbers.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">alphanumeric</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-url">Url&nbsp;<a href="#provided-validators-url"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">url</span><span class="hljs-params">(args...)</span></span>
 </code></pre><h4 id="provided-validators-ip-address">IP Address&nbsp;<a href="#provided-validators-ip-address"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">ipAddress</span><span class="hljs-params">(args...)</span></span>
-</code></pre><h4 id="provided-validators-credit-card">Credit Card&nbsp;<a href="#provided-validators-credit-card"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">creditCard</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>Ensures the value provided is a valid credit card number.</p>
-<h4 id="provided-validators-equals">Equals&nbsp;<a href="#provided-validators-equals"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">equals</span><span class="hljs-params">(equalValue, customErrorMessage)</span></span>
-</code></pre><p>When provided with an <code>equalValue</code> parameter, this will make sure the value provided to the form equals the <code>equalValue</code> provided.</p>
-<h4 id="provided-validators-one-of">One Of&nbsp;<a href="#provided-validators-one-of"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">oneOf</span><span class="hljs-params">(allowedValues, customErrorMessage)</span></span>
-</code></pre><p>This validator should be passed an array of acceptable values, and if the value provided to the form for validation is one of those, it will pass validation.</p>
-<h4 id="provided-validators-contains">Contains&nbsp;<a href="#provided-validators-contains"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">contains</span><span class="hljs-params">(containsValue, customErrorMessage)</span></span>
-</code></pre><p>This validator should be passed a string as the first parameter.
+</code></pre><h4 id="provided-validators-credit-card">Credit Card&nbsp;<a href="#provided-validators-credit-card"><i class="fa fa-link"></i></a></h4><p>Ensures the value provided is a valid credit card number.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">creditCard</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-equals">Equals&nbsp;<a href="#provided-validators-equals"><i class="fa fa-link"></i></a></h4><p>When provided with an <code>equalValue</code> parameter, this will make sure the value provided to the form equals the <code>equalValue</code> provided.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">equals</span><span class="hljs-params">(equalValue, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-one-of">One Of&nbsp;<a href="#provided-validators-one-of"><i class="fa fa-link"></i></a></h4><p>This validator should be passed an array of acceptable values, and if the value provided to the form for validation is one of those, it will pass validation.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">oneOf</span><span class="hljs-params">(allowedValues, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-contains">Contains&nbsp;<a href="#provided-validators-contains"><i class="fa fa-link"></i></a></h4><p>This validator should be passed a string as the first parameter.
 If the value provided to the form for validation contains this value as a substring, it will pass validation.</p>
-<h4 id="provided-validators-matches">Matches&nbsp;<a href="#provided-validators-matches"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">matches</span><span class="hljs-params">(regexValue, customErrorMessage)</span></span>
-</code></pre><p>This validator should be passed a regex as the first parameter.
+<pre><code><span class="hljs-function"><span class="hljs-title">contains</span><span class="hljs-params">(containsValue, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-matches">Matches&nbsp;<a href="#provided-validators-matches"><i class="fa fa-link"></i></a></h4><p>This validator should be passed a regex as the first parameter.
 If the value provided to the form for validation matches this regex, it will pass validation.</p>
-<h4 id="provided-validators-date">Date&nbsp;<a href="#provided-validators-date"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">date</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>This validator will loosely check that the provided value for validation is a date.
+<pre><code><span class="hljs-function"><span class="hljs-title">matches</span><span class="hljs-params">(regexValue, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-date">Date&nbsp;<a href="#provided-validators-date"><i class="fa fa-link"></i></a></h4><p>This validator will loosely check that the provided value for validation is a date.
 It can be of any format, even a Unix timestamp.</p>
-<h4 id="provided-validators-date-with-specific-format">Date with Specific Format&nbsp;<a href="#provided-validators-date-with-specific-format"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">dateForm</span><span class="hljs-params">(dateFormat, customErrorMessage)</span></span>
-</code></pre><p>This validator should be provided a date format string.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">date</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-date-with-specific-format">Date with Specific Format&nbsp;<a href="#provided-validators-date-with-specific-format"><i class="fa fa-link"></i></a></h4><p>This validator should be provided a date format string.</p>
 <p>It will check that the value provided to the form for validation is a valid date, and is in the format specified.</p>
 <p>This validator is backended by the <a href="https://github.com/moment/moment/">moment.js library</a>.</p>
 <p>When specifying a custom error message, you may use <code>{{dateFormat}}</code> to have the specified format injected into your custom error message.</p>
-<h4 id="provided-validators-match-another-property-/-field">Match Another Property / Field&nbsp;<a href="#provided-validators-match-another-property-/-field"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">matchProperty</span><span class="hljs-params">(propertyKey, customErrorMessage)</span></span>
-</code></pre><p>This validator takes a property key as the first parameter.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">dateForm</span><span class="hljs-params">(dateFormat, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-match-another-property-/-field">Match Another Property / Field&nbsp;<a href="#provided-validators-match-another-property-/-field"><i class="fa fa-link"></i></a></h4><p>This validator takes a property key as the first parameter.</p>
 <p>When validation runs, it will check that the value provided to the form for validation is the same as the value of the given property.</p>
 <p>This is usually used for comparing password &amp; confirm password fields <a href="#form-models">(see the example above)</a>.</p>
-<h4 id="provided-validators-int">Int&nbsp;<a href="#provided-validators-int"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">int</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>This validator will check that the value provided to the form is an integer.</p>
-<h4 id="provided-validators-float">Float&nbsp;<a href="#provided-validators-float"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">float</span><span class="hljs-params">(customErrorMessage)</span></span>
-</code></pre><p>This validator will check that the value provided to the form is floating point number.</p>
-</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="custom-validators">Custom Validators&nbsp;<a href="#custom-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits provides the ability to define custom validation functions for your form models.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">matchProperty</span><span class="hljs-params">(propertyKey, customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-int">Int&nbsp;<a href="#provided-validators-int"><i class="fa fa-link"></i></a></h4><p>This validator will check that the value provided to the form is an integer.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">int</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre><h4 id="provided-validators-float">Float&nbsp;<a href="#provided-validators-float"><i class="fa fa-link"></i></a></h4><p>This validator will check that the value provided to the form is floating point number.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">float</span><span class="hljs-params">(customErrorMessage)</span></span>
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="custom-validators">Custom Validators&nbsp;<a href="#custom-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits provides the ability to define custom validation functions for your form models.</p>
 <p>The returned result of the custom validation function will be cast to a promise,
 so the validation function can be synchronous or asynchronous depending on the requirements of the validation.</p>
 <p>If the value provided is valid, then the overall function should return ‘true’,
