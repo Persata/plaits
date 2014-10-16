@@ -1,14 +1,13 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Plaits.js</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
-pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
-pre code{display:block;padding:.5em;background:#272b30}
-.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body {
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Plaits.js</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>pre code{display:block;padding:.5em;color:#333}
+/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
   font-family: 'Roboto' sans-serif !important;
 }
 h1,
 h2,
 h3,
-h4,
-h5,
 .aglio {
   font-family: 'Raleway' sans-serif !important;
 }
@@ -27,21 +26,19 @@ h5:hover a {
   display: inline;
 }
 code {
-  color: #222;
-  background-color: #aaa;
+  color: #444;
+  background-color: #ddd;
   font-family: 'Inconsolata' monospace !important;
 }
 a[data-target] {
   cursor: pointer;
 }
 h4 {
-  margin-top: 18px;
+  padding-top: 6px;
+  margin-top: 12px;
   font-size: 24px;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 6px;
-}
-h5 {
-  font-size: 20px;
 }
 .back-to-top {
   position: fixed;
@@ -49,8 +46,7 @@ h5 {
   bottom: 0px;
   right: 24px;
   padding: 4px 8px;
-  color: #aaa;
-  background-color: #171b20;
+  background-color: #eee;
   text-decoration: none !important;
   border-top: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
@@ -63,7 +59,6 @@ h5 {
 }
 .panel-heading code {
   margin-left: 3px;
-  color: #000;
   background-color: rgba(255,255,255,0.7);
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -100,8 +95,8 @@ a.list-group-item:hover {
   display: block;
 }
 a.list-group-item:hover {
-  background-color: #4b5159;
-  border-left-color: #c8c8c8;
+  background-color: #f5f5f5;
+  border-left-color: #555;
 }
 a.list-group-item {
   font-size: 13px;
@@ -111,10 +106,10 @@ a.list-group-item {
 }
 a.list-group-item.heading {
   font-size: 15px;
-  background-color: #3e444c;
+  background-color: #ecf0f1;
 }
 a.list-group-item.heading:hover {
-  background-color: #4b5159;
+  background-color: #f5f5f5;
 }
 .list-group-item.collapse {
   display: none;
@@ -149,7 +144,7 @@ a.list-group-item.heading:hover {
     max-width: 212px;
   }
 }
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.0-menu" href="#latest-release---0.1.0" class="list-group-item heading collapsed">Latest Release - 0.1.0</a><div id="latest-release---0.1.0-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-&amp;-html-generation-menu" href="#express-middleware-&amp;-html-generation" class="list-group-item heading collapsed">Express Middleware &amp; Html Generation</a><div id="express-middleware-&amp;-html-generation-menu"><a href="#express-middleware-&amp;-html-generation-middleware" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Middleware</a><a href="#express-middleware-&amp;-html-generation-html-helpers" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Helpers</a><a href="#express-middleware-&amp;-html-generation-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Templates</a><a href="#express-middleware-&amp;-html-generation-custom-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Html Templates</a></div></div><div class="list-group"><a data-toggle="" data-target="#changelog-menu" href="#changelog" class="list-group-item heading collapsed">Changelog</a><div id="changelog-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.0-menu" href="#latest-release---0.1.0" class="list-group-item heading collapsed">Latest Release - 0.1.0</a><div id="latest-release---0.1.0-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-&amp;-html-menu" href="#express-middleware-&amp;-html" class="list-group-item heading collapsed">Express Middleware &amp; Html</a><div id="express-middleware-&amp;-html-menu"><a href="#express-middleware-&amp;-html-middleware" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Middleware</a><a href="#express-middleware-&amp;-html-html-helpers" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Helpers</a><a href="#express-middleware-&amp;-html-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Templates</a><a href="#express-middleware-&amp;-html-custom-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Html Templates</a></div></div><div class="list-group"><a data-toggle="" data-target="#changelog-menu" href="#changelog" class="list-group-item heading collapsed">Changelog</a><div id="changelog-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
 <p>It supports both synchronous and asynchronous validation (via <a href="https://github.com/petkaantonov/bluebird/">Promises</a>), and comes with many built-in validators which are provided
 by the excellent <a href="https://github.com/chriso/validator.js">validator.js library</a>.</p>
 <p>It is intended for use with <a href="http://expressjs.com/">Express</a>, but can be used with other libraries and frameworks too.</p>
@@ -346,15 +341,15 @@ Ensure however, that if you are using asynchronous events that you use the async
 <p>Specify the events using <code>on()</code> in your initialize method like so:</p>
 <pre><code>// Register Form Declaration
 var RegisterForm = Plaits.Model.extend(
-{
-  <span class="hljs-keyword">...</span>
-  initialize: <span class="hljs-keyword">function</span> () {
-    this.on(<span class="hljs-string">'beforeParseRequest'</span>, <span class="hljs-keyword">function</span> (model, request) {
-      <span class="hljs-keyword">...</span>
-    });
-  },
-  <span class="hljs-keyword">...</span>
-}
+  {
+    <span class="hljs-keyword">...</span>
+    initialize: <span class="hljs-keyword">function</span> () {
+      this.on(<span class="hljs-string">'beforeParseRequest'</span>, <span class="hljs-keyword">function</span> (model, request) {
+        <span class="hljs-keyword">...</span>
+      });
+    },
+    <span class="hljs-keyword">...</span>
+  }
 );
 </code></pre><h4 id="events-beforeparserequest">beforeParseRequest&nbsp;<a href="#events-beforeparserequest"><i class="fa fa-link"></i></a></h4><p>This even fires before a request is parsed, allowing you to modify the request or the model.</p>
 <pre><code>  /**
@@ -392,7 +387,7 @@ var RegisterForm = Plaits.Model.extend(
   this.on(<span class="hljs-string">'afterValidate'</span>, <span class="hljs-keyword">function</span> (model, validationResult, validationErrors) {
     <span class="hljs-keyword">...</span>
   });
-</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="express-middleware-&amp;-html-generation">Express Middleware &amp; Html Generation&nbsp;<a href="#express-middleware-&amp;-html-generation"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="express-middleware-&amp;-html-generation-middleware">Middleware&nbsp;<a href="#express-middleware-&amp;-html-generation-middleware"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-html-helpers">Html Helpers&nbsp;<a href="#express-middleware-&amp;-html-generation-html-helpers"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-html-templates">Html Templates&nbsp;<a href="#express-middleware-&amp;-html-generation-html-templates"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-custom-html-templates">Custom Html Templates&nbsp;<a href="#express-middleware-&amp;-html-generation-custom-html-templates"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="changelog">Changelog&nbsp;<a href="#changelog"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h5 id="0-1-0-initial-release">0.1.0 - Initial Release</h5>
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="express-middleware-&amp;-html">Express Middleware &amp; Html&nbsp;<a href="#express-middleware-&amp;-html"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="express-middleware-&amp;-html-middleware">Middleware&nbsp;<a href="#express-middleware-&amp;-html-middleware"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-html-helpers">Html Helpers&nbsp;<a href="#express-middleware-&amp;-html-html-helpers"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-html-templates">Html Templates&nbsp;<a href="#express-middleware-&amp;-html-html-templates"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-custom-html-templates">Custom Html Templates&nbsp;<a href="#express-middleware-&amp;-html-custom-html-templates"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="changelog">Changelog&nbsp;<a href="#changelog"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h5 id="0-1-0-initial-release">0.1.0 - Initial Release</h5>
 <ul>
 <li>Initial Release</li>
 </ul>

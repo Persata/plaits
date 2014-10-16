@@ -360,15 +360,15 @@ Specify the events using ```on()``` in your initialize method like so:
 ```
 // Register Form Declaration
 var RegisterForm = Plaits.Model.extend(
-{
-  ...
-  initialize: function () {
-    this.on('beforeParseRequest', function (model, request) {
-      ...
-    });
-  },
-  ...
-}
+  {
+    ...
+    initialize: function () {
+      this.on('beforeParseRequest', function (model, request) {
+        ...
+      });
+    },
+    ...
+  }
 );
 ```
 
@@ -432,7 +432,7 @@ This even fires after a model has been validated.
   });
 ```
 
-# Group Express Middleware & Html Generation
+# Group Express Middleware & Html
 
 ## Middleware [/]
 
