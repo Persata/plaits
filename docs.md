@@ -292,7 +292,7 @@ Custom validation functions should be defined as such:
  */
 var uniqueEmailValidator = function(fieldValue, fieldLabel, formModel, additionalVars) {
   // SQL Query
-  return knexInstance('users').select('email').where('email', '=', value).then(function(result) {
+  return knexInstance('users').select('email').where('email', '=', fieldValue).then(function(result) {
       // Result Count
       if (result.length > 0) {
           // Return An Error

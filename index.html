@@ -140,7 +140,7 @@ a.list-group-item.heading:hover {
   padding-bottom: 12px;
   overflow-y: auto;
 }
-@media (max-width: 1199px) {
+@media( max-width: 1199px) {
   #nav {
     max-width: 212px;
   }
@@ -284,7 +284,7 @@ however if the value is invalid, a string should be returned explaining why the 
  */</span>
 <span class="hljs-keyword">var</span> uniqueEmailValidator = function(fieldValue, fieldLabel, formModel, additionalVars) {
   <span class="hljs-comment">// SQL Query</span>
-  <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">knexInstance</span><span class="hljs-params">(<span class="hljs-string">'users'</span>)</span>.<span class="hljs-title">select</span><span class="hljs-params">(<span class="hljs-string">'email'</span>)</span>.<span class="hljs-title">where</span><span class="hljs-params">(<span class="hljs-string">'email'</span>, <span class="hljs-string">'='</span>, <span class="hljs-keyword">value</span>)</span>.<span class="hljs-title">then</span><span class="hljs-params">(function(result)</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">knexInstance</span><span class="hljs-params">(<span class="hljs-string">'users'</span>)</span>.<span class="hljs-title">select</span><span class="hljs-params">(<span class="hljs-string">'email'</span>)</span>.<span class="hljs-title">where</span><span class="hljs-params">(<span class="hljs-string">'email'</span>, <span class="hljs-string">'='</span>, fieldValue)</span>.<span class="hljs-title">then</span><span class="hljs-params">(function(result)</span> </span>{
       <span class="hljs-comment">// Result Count</span>
       <span class="hljs-keyword">if</span> (result.length &gt; <span class="hljs-number">0</span>) {
           <span class="hljs-comment">// Return An Error</span>
