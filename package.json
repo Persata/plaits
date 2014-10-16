@@ -1,6 +1,6 @@
 {
   "name": "plaits",
-  "description": "Facilitates the creation and validation of forms in Node applications.",
+  "description": "Facilitates the creation, validation and rendering of forms in Node applications.",
   "version": "0.0.1",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
     "validation",
     "errors",
     "promise",
-    "render"
+    "render",
+    "jade"
   ],
   "dependencies": {
     "backbone": "^1.1.2",
