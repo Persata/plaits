@@ -7,7 +7,7 @@
     "url": "git://github.com/persata/plaits.git"
   },
   "author": "Ross Kinsman",
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "main": "index.js",
   "keywords": [
