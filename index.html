@@ -1,14 +1,14 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><title>Plaits.js</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
 pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
 pre code{display:block;padding:.5em;background:#272b30}
-.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
-h4,
-h5 {
+.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body {
   font-family: 'Roboto' sans-serif !important;
 }
 h1,
 h2,
 h3,
+h4,
+h5,
 .aglio {
   font-family: 'Raleway' sans-serif !important;
 }
@@ -35,9 +35,13 @@ a[data-target] {
   cursor: pointer;
 }
 h4 {
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: uppercase;
+  margin-top: 18px;
+  font-size: 24px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 6px;
+}
+h5 {
+  font-size: 20px;
 }
 .back-to-top {
   position: fixed;
@@ -145,7 +149,7 @@ a.list-group-item.heading:hover {
     max-width: 212px;
   }
 }
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.0-menu" href="#latest-release---0.1.0" class="list-group-item heading collapsed">Latest Release - 0.1.0</a><div id="latest-release---0.1.0-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-creation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Creation</a><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-custom-functions" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Functions</a><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-intelligent-parsing" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Intelligent Parsing</a><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-&amp;-html-menu" href="#express-middleware-&amp;-html" class="list-group-item heading collapsed">Express Middleware &amp; Html</a><div id="express-middleware-&amp;-html-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#html-helpers-menu" href="#html-helpers" class="list-group-item heading collapsed">Html Helpers</a><div id="html-helpers-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#html-templates-menu" href="#html-templates" class="list-group-item heading collapsed">Html Templates</a><div id="html-templates-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.0-menu" href="#latest-release---0.1.0" class="list-group-item heading collapsed">Latest Release - 0.1.0</a><div id="latest-release---0.1.0-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-&amp;-html-generation-menu" href="#express-middleware-&amp;-html-generation" class="list-group-item heading collapsed">Express Middleware &amp; Html Generation</a><div id="express-middleware-&amp;-html-generation-menu"><a href="#express-middleware-&amp;-html-generation-middleware" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Middleware</a><a href="#express-middleware-&amp;-html-generation-html-helpers" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Helpers</a><a href="#express-middleware-&amp;-html-generation-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Html Templates</a><a href="#express-middleware-&amp;-html-generation-custom-html-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Html Templates</a></div></div><div class="list-group"><a data-toggle="" data-target="#changelog-menu" href="#changelog" class="list-group-item heading collapsed">Changelog</a><div id="changelog-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
 <p>It supports both synchronous and asynchronous validation (via <a href="https://github.com/petkaantonov/bluebird/">Promises</a>), and comes with many built-in validators which are provided
 by the excellent <a href="https://github.com/chriso/validator.js">validator.js library</a>.</p>
 <p>It is intended for use with <a href="http://expressjs.com/">Express</a>, but can be used with other libraries and frameworks too.</p>
@@ -153,7 +157,8 @@ by the excellent <a href="https://github.com/chriso/validator.js">validator.js l
 </div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="latest-release---0.1.0">Latest Release - 0.1.0&nbsp;<a href="#latest-release---0.1.0"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Build Status - <a href="https://travis-ci.org/Persata/plaits"><img src="https://travis-ci.org/Persata/plaits.svg" alt="Build Status"></a></p>
 <p>Dependencies - <a href="https://gemnasium.com/Persata/plaits"><img src="https://gemnasium.com/Persata/plaits.svg" alt="Dependency Status"></a></p>
 <p>Code Coverage - <a href="https://coveralls.io/r/Persata/plaits?branch=master"><img src="https://img.shields.io/coveralls/Persata/plaits.svg" alt="Coverage Status"></a></p>
-</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-models">Form Models&nbsp;<a href="#form-models"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="form-models-model-creation">Model Creation&nbsp;<a href="#form-models-model-creation"><i class="fa fa-link"></i></a></h4><p>Plaits models are simply Backbone models with different functionality.</p>
+<p><a href="#changelog">Changelog</a></p>
+</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-models">Form Models&nbsp;<a href="#form-models"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits models are simply Backbone models with different functionality.</p>
 <p>A model <strong>must</strong> be given a name, and a list of fields. It also takes an optional list of validators <a href="#provided-validators">(examples later)</a>.</p>
 <p>A basic model example:</p>
 <pre><code><span class="hljs-comment">// Require Plaits</span>
@@ -263,50 +268,52 @@ It can be of any format, even a Unix timestamp.</p>
 <h4 id="provided-validators-match-another-property-/-field">Match Another Property / Field&nbsp;<a href="#provided-validators-match-another-property-/-field"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">matchProperty</span><span class="hljs-params">(propertyKey, customErrorMessage)</span></span>
 </code></pre><p>This validator takes a property key as the first parameter.</p>
 <p>When validation runs, it will check that the value provided to the form for validation is the same as the value of the given property.</p>
-<p>This is usually used for comparing password &amp; confirm password fields <a href="#form-models-model-creation">(see the example above)</a>.</p>
+<p>This is usually used for comparing password &amp; confirm password fields <a href="#form-models">(see the example above)</a>.</p>
 <h4 id="provided-validators-int">Int&nbsp;<a href="#provided-validators-int"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">int</span><span class="hljs-params">(customErrorMessage)</span></span>
 </code></pre><p>This validator will check that the value provided to the form is an integer.</p>
 <h4 id="provided-validators-float">Float&nbsp;<a href="#provided-validators-float"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-function"><span class="hljs-title">float</span><span class="hljs-params">(customErrorMessage)</span></span>
 </code></pre><p>This validator will check that the value provided to the form is floating point number.</p>
-</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="custom-validators">Custom Validators&nbsp;<a href="#custom-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="custom-validators-custom-functions">Custom Functions&nbsp;<a href="#custom-validators-custom-functions"><i class="fa fa-link"></i></a></h4><p>Plaits provides the ability to define custom validation functions for your form models.</p>
+</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="custom-validators">Custom Validators&nbsp;<a href="#custom-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits provides the ability to define custom validation functions for your form models.</p>
 <p>The returned result of the custom validation function will be cast to a promise,
 so the validation function can be synchronous or asynchronous depending on the requirements of the validation.</p>
 <p>If the value provided is valid, then the overall function should return ‘true’,
 however if the value is invalid, a string should be returned explaining why the field is invalid.</p>
 <p>Asynchronous use cases would be such things as checking a database to ensure a unique email address or username.</p>
 <h4 id="custom-validators-example">Example&nbsp;<a href="#custom-validators-example"><i class="fa fa-link"></i></a></h4><p>Custom validation functions should be defined as such:</p>
-<pre><code><span class="hljs-comment">/**
+<pre><code>/**
  * Define Your Unique Email Validator
  * @param fieldValue      - The value of the field
  * @param fieldLabel      - The label of the field
  * @param formModel       - The current instance of the form model this validator belongs to
- * @param additionalVars  - Additional variables passed to the validate() function (explained later)
- */</span>
-<span class="hljs-keyword">var</span> uniqueEmailValidator = function(fieldValue, fieldLabel, formModel, additionalVars) {
-  <span class="hljs-comment">// SQL Query</span>
-  <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">knexInstance</span><span class="hljs-params">(<span class="hljs-string">'users'</span>)</span>.<span class="hljs-title">select</span><span class="hljs-params">(<span class="hljs-string">'email'</span>)</span>.<span class="hljs-title">where</span><span class="hljs-params">(<span class="hljs-string">'email'</span>, <span class="hljs-string">'='</span>, fieldValue)</span>.<span class="hljs-title">then</span><span class="hljs-params">(function(result)</span> </span>{
-      <span class="hljs-comment">// Result Count</span>
+ * @param additionalVars  - Additional vars passed to the validate() <span class="hljs-keyword">function</span> (explained later)
+ */
+var uniqueEmailValidator = <span class="hljs-keyword">function</span>(fieldValue, fieldLabel, formModel, additionalVars) {
+  // Table
+  var userTable = knexInstance(<span class="hljs-string">'users'</span>);
+  // Query
+  <span class="hljs-keyword">return</span> userTable.select(<span class="hljs-string">'email'</span>).where(<span class="hljs-string">'email'</span>, <span class="hljs-string">'='</span>, fieldValue).then(<span class="hljs-keyword">function</span>(result) {
+      // Result Count
       <span class="hljs-keyword">if</span> (result.length &gt; <span class="hljs-number">0</span>) {
-          <span class="hljs-comment">// Return An Error</span>
+          // Return An Error
           <span class="hljs-keyword">return</span> <span class="hljs-string">'That email address is already in use!'</span>;
       } <span class="hljs-keyword">else</span> {
-          <span class="hljs-comment">// Return True (Valid)</span>
-          <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+          // Return True (Valid)
+          <span class="hljs-keyword">return</span> true;
       }
   });
 };
 
-<span class="hljs-comment">// Add to Register Form Declaration</span>
-<span class="hljs-keyword">var</span> RegisterForm = Plaits.Model.extend(
+// Add to Register Form Declaration
+var RegisterForm = Plaits.Model.extend(
   {
-    ...
+    <span class="hljs-keyword">...</span>
     validators: {
       email_address: uniqueEmailValidator
     }
-    ...
+    <span class="hljs-keyword">...</span>
   }
 );
-</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-request-parsing">Form Request Parsing&nbsp;<a href="#form-request-parsing"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="form-request-parsing-intelligent-parsing">Intelligent Parsing&nbsp;<a href="#form-request-parsing-intelligent-parsing"><i class="fa fa-link"></i></a></h4><p>If you are using the <a href="http://expressjs.com/">Express</a> framework, you can have the module intelligently parse requests made to your routes.</p>
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-request-parsing">Form Request Parsing&nbsp;<a href="#form-request-parsing"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>If you are using the <a href="http://expressjs.com/">Express</a> framework, you can have the module parse requests made to your routes.</p>
 <p>This will analyse your GET and POST parameters, and assign the values to the form as they are found.</p>
 <p>Values should be passed as <code>(form name)_(field name)</code>, for example <code>register_form_email_address</code>, <code>register_form_confirm_password</code> and so on.</p>
 <h4 id="form-request-parsing-example">Example&nbsp;<a href="#form-request-parsing-example"><i class="fa fa-link"></i></a></h4><pre><code><span class="hljs-comment">// Register Form</span>
@@ -332,7 +339,64 @@ router.post(<span class="hljs-string">'/test'</span>, <span class="hljs-function
       <span class="hljs-comment">// ...</span>
     });
 });
-</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-validation">Form Validation&nbsp;<a href="#form-validation"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="form-validation-validation">Validation&nbsp;<a href="#form-validation-validation"><i class="fa fa-link"></i></a></h4><h4 id="form-validation-errors">Errors&nbsp;<a href="#form-validation-errors"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="events">Events&nbsp;<a href="#events"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="events-beforeparserequest">beforeParseRequest&nbsp;<a href="#events-beforeparserequest"><i class="fa fa-link"></i></a></h4><h4 id="events-afterparserequest">afterParseRequest&nbsp;<a href="#events-afterparserequest"><i class="fa fa-link"></i></a></h4><h4 id="events-beforevalidate">beforeValidate&nbsp;<a href="#events-beforevalidate"><i class="fa fa-link"></i></a></h4><h4 id="events-aftervalidate">afterValidate&nbsp;<a href="#events-aftervalidate"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="express-middleware-&amp;-html">Express Middleware &amp; Html&nbsp;<a href="#express-middleware-&amp;-html"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="html-helpers">Html Helpers&nbsp;<a href="#html-helpers"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="html-templates">Html Templates&nbsp;<a href="#html-templates"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Oct 2014</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-validation">Form Validation&nbsp;<a href="#form-validation"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>The main intention of Plaits is to validate the data passed to the model and return feedback based on the validation result.</p>
+<h4 id="form-validation-validation">Validation&nbsp;<a href="#form-validation-validation"><i class="fa fa-link"></i></a></h4><h4 id="form-validation-errors">Errors&nbsp;<a href="#form-validation-errors"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="events">Events&nbsp;<a href="#events"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits models come with custom events that allow you to hook in and modify model behaviour or attributes when triggered.</p>
+<p>Events for asynchronous operations (e.g. parse and validate) use <a href="https://github.com/bookshelf/trigger-then">trigger-then</a>, allowing for asynchronous behaviour in your event listeners if necessary.
+Ensure however, that if you are using asynchronous events that you use the asynchronous versions of <code>parseRequest</code> and <code>validate</code>.</p>
+<p>Specify the events using <code>on()</code> in your initialize method like so:</p>
+<pre><code>// Register Form Declaration
+var RegisterForm = Plaits.Model.extend(
+{
+  <span class="hljs-keyword">...</span>
+  initialize: <span class="hljs-keyword">function</span> () {
+    this.on(<span class="hljs-string">'beforeParseRequest'</span>, <span class="hljs-keyword">function</span> (model, request) {
+      <span class="hljs-keyword">...</span>
+    });
+  },
+  <span class="hljs-keyword">...</span>
+}
+);
+</code></pre><h4 id="events-beforeparserequest">beforeParseRequest&nbsp;<a href="#events-beforeparserequest"><i class="fa fa-link"></i></a></h4><p>This even fires before a request is parsed, allowing you to modify the request or the model.</p>
+<pre><code>  /**
+   * Before Parse Event
+   * @param model PlaitsModel - The form model
+   * @param request Object - The express request object
+   */
+  this.on(<span class="hljs-string">'beforeParseRequest'</span>, <span class="hljs-keyword">function</span> (model, request) {
+    <span class="hljs-keyword">...</span>
+  });
+</code></pre><h4 id="events-afterparserequest">afterParseRequest&nbsp;<a href="#events-afterparserequest"><i class="fa fa-link"></i></a></h4><p>This even fires after a request is parsed.</p>
+<pre><code>  /**
+   * Before Parse Event
+   * @param model PlaitsModel - The form model
+   * @param request Object - The express request object
+   */
+  this.on(<span class="hljs-string">'afterParseRequest'</span>, <span class="hljs-keyword">function</span> (model, request) {
+    <span class="hljs-keyword">...</span>
+  });
+</code></pre><h4 id="events-beforevalidate">beforeValidate&nbsp;<a href="#events-beforevalidate"><i class="fa fa-link"></i></a></h4><p>This even fires before a model is validated.</p>
+<pre><code>  /**
+   * Before Validate Event
+   * @param model PlaitsModel - The form model
+   */
+  this.on(<span class="hljs-string">'beforeValidate'</span>, <span class="hljs-keyword">function</span> (model) {
+    <span class="hljs-keyword">...</span>
+  });
+</code></pre><h4 id="events-aftervalidate">afterValidate&nbsp;<a href="#events-aftervalidate"><i class="fa fa-link"></i></a></h4><p>This even fires after a model has been validated.</p>
+<pre><code>  /**
+   * After Validate Event
+   * @param model PlaitsModel - The form model
+   * @param validationResult Boolean - Whether the model is valid or not
+   * @param validationErrors Object - An object containing any validation errors
+   */
+  this.on(<span class="hljs-string">'afterValidate'</span>, <span class="hljs-keyword">function</span> (model, validationResult, validationErrors) {
+    <span class="hljs-keyword">...</span>
+  });
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="express-middleware-&amp;-html-generation">Express Middleware &amp; Html Generation&nbsp;<a href="#express-middleware-&amp;-html-generation"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="express-middleware-&amp;-html-generation-middleware">Middleware&nbsp;<a href="#express-middleware-&amp;-html-generation-middleware"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-html-helpers">Html Helpers&nbsp;<a href="#express-middleware-&amp;-html-generation-html-helpers"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-html-templates">Html Templates&nbsp;<a href="#express-middleware-&amp;-html-generation-html-templates"><i class="fa fa-link"></i></a></h4><h4 id="express-middleware-&amp;-html-generation-custom-html-templates">Custom Html Templates&nbsp;<a href="#express-middleware-&amp;-html-generation-custom-html-templates"><i class="fa fa-link"></i></a></h4></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="changelog">Changelog&nbsp;<a href="#changelog"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h5 id="0-1-0-initial-release">0.1.0 - Initial Release</h5>
+<ul>
+<li>Initial Release</li>
+</ul>
+</div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Oct 2014</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
 </div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
   if (location.protocol === 'file:') {

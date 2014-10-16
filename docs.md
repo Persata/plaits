@@ -19,9 +19,9 @@ Dependencies - [![Dependency Status](https://gemnasium.com/Persata/plaits.svg)](
 
 Code Coverage - [![Coverage Status](https://img.shields.io/coveralls/Persata/plaits.svg)](https://coveralls.io/r/Persata/plaits?branch=master)
 
-# Group Form Models
+[Changelog](#changelog)
 
-## Model Creation [/]
+# Group Form Models
 
 Plaits models are simply Backbone models with different functionality.
 
@@ -248,7 +248,7 @@ This validator takes a property key as the first parameter.
 
 When validation runs, it will check that the value provided to the form for validation is the same as the value of the given property.
 
-This is usually used for comparing password & confirm password fields [(see the example above)](#form-models-model-creation).
+This is usually used for comparing password & confirm password fields [(see the example above)](#form-models).
 
 ## Int [/]
 ```
@@ -265,8 +265,6 @@ float(customErrorMessage)
 This validator will check that the value provided to the form is floating point number.
 
 # Group Custom Validators
-
-## Custom Functions [/]
 
 Plaits provides the ability to define custom validation functions for your form models.
 
@@ -288,11 +286,13 @@ Custom validation functions should be defined as such:
  * @param fieldValue      - The value of the field
  * @param fieldLabel      - The label of the field
  * @param formModel       - The current instance of the form model this validator belongs to
- * @param additionalVars  - Additional variables passed to the validate() function (explained later)
+ * @param additionalVars  - Additional vars passed to the validate() function (explained later)
  */
 var uniqueEmailValidator = function(fieldValue, fieldLabel, formModel, additionalVars) {
-  // SQL Query
-  return knexInstance('users').select('email').where('email', '=', fieldValue).then(function(result) {
+  // Table
+  var userTable = knexInstance('users');
+  // Query
+  return userTable.select('email').where('email', '=', fieldValue).then(function(result) {
       // Result Count
       if (result.length > 0) {
           // Return An Error
@@ -318,9 +318,7 @@ var RegisterForm = Plaits.Model.extend(
 
 # Group Form Request Parsing
 
-## Intelligent Parsing [/]
-
-If you are using the [Express](http://expressjs.com/) framework, you can have the module intelligently parse requests made to your routes.
+If you are using the [Express](http://expressjs.com/) framework, you can have the module parse requests made to your routes.
 
 This will analyse your GET and POST parameters, and assign the values to the form as they are found.
 
@@ -357,22 +355,107 @@ router.post('/test', function(req, res) {
 
 # Group Form Validation
 
+The main intention of Plaits is to validate the data passed to the model and return feedback based on the validation result.
+
 ## Validation [/]
 
 ## Errors [/]
 
 # Group Events
 
+Plaits models come with custom events that allow you to hook in and modify model behaviour or attributes when triggered.
+
+Events for asynchronous operations (e.g. parse and validate) use [trigger-then](https://github.com/bookshelf/trigger-then), allowing for asynchronous behaviour in your event listeners if necessary.
+Ensure however, that if you are using asynchronous events that you use the asynchronous versions of ```parseRequest``` and ```validate```.
+
+Specify the events using ```on()``` in your initialize method like so:
+
+```
+// Register Form Declaration
+var RegisterForm = Plaits.Model.extend(
+{
+  ...
+  initialize: function () {
+    this.on('beforeParseRequest', function (model, request) {
+      ...
+    });
+  },
+  ...
+}
+);
+```
+
 ## beforeParseRequest [/]
+
+This even fires before a request is parsed, allowing you to modify the request or the model.
+
+```
+  /**
+   * Before Parse Event
+   * @param model PlaitsModel - The form model
+   * @param request Object - The express request object
+   */
+  this.on('beforeParseRequest', function (model, request) {
+    ...
+  });
+```
 
 ## afterParseRequest [/]
 
+This even fires after a request is parsed.
+
+```
+  /**
+   * Before Parse Event
+   * @param model PlaitsModel - The form model
+   * @param request Object - The express request object
+   */
+  this.on('afterParseRequest', function (model, request) {
+    ...
+  });
+```
+
 ## beforeValidate [/]
+
+This even fires before a model is validated.
+
+```
+  /**
+   * Before Validate Event
+   * @param model PlaitsModel - The form model
+   */
+  this.on('beforeValidate', function (model) {
+    ...
+  });
+```
 
 ## afterValidate [/]
 
-# Group Express Middleware & Html
+This even fires after a model has been validated.
 
-# Group Html Helpers
+```
+  /**
+   * After Validate Event
+   * @param model PlaitsModel - The form model
+   * @param validationResult Boolean - Whether the model is valid or not
+   * @param validationErrors Object - An object containing any validation errors
+   */
+  this.on('afterValidate', function (model, validationResult, validationErrors) {
+    ...
+  });
+```
 
-# Group Html Templates
+# Group Express Middleware & Html Generation
+
+## Middleware [/]
+
+## Html Helpers [/]
+
+## Html Templates [/]
+
+## Custom Html Templates [/]
+
+# Group Changelog
+
+##### 0.1.0 - Initial Release
+  - Initial Release
