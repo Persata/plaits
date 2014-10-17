@@ -126,6 +126,8 @@ var RegisterForm = require('../forms/register');
 var registerForm = new RegisterForm();
 ```
 
+# Group Model Functions
+
 # Group Provided Validators
 
 Plaits comes with a large set of built in validators which should be able to handle many of your use cases.
