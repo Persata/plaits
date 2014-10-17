@@ -11,10 +11,10 @@ block styles
         .hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}
     style
         :stylus
-            body, h4, h5
+            body,
                 font-family 'Roboto' sans-serif !important
 
-            h1, h2, h3, .aglio
+            h1, h2, h3, h4, h5, .aglio
                 font-family 'Raleway' sans-serif !important
 
             h1, h2, h3, h4, h5
@@ -39,6 +39,9 @@ block styles
                 border-bottom 1px solid #CCC
                 padding-bottom 6px
 
+            h5
+                font-size 18px
+
             .back-to-top
                 position fixed
                 z-index 1
@@ -57,6 +60,7 @@ block styles
                 overflow hidden
 
             .panel-heading
+                padding 0
                 code
                     margin-left 3px
                     background-color rgba(255,255,255,0.7)
@@ -66,8 +70,8 @@ block styles
                     white-space -o-pre-wrap
                     word-wrap break-word
                 h3
-                    margin-top 10px
-                    margin-bottom 10px
+                    padding 15px 20px
+                    margin 0
             
             a.list-group-item:hover
                 background-color #F8F8F8
@@ -79,6 +83,7 @@ block styles
                 text-indent: 16px;
             
             .list-group-item
+                padding 4px
                 padding-left 16px
                 .toggle
                     .open
@@ -132,7 +137,7 @@ block styles
 
             #nav
                 width: inherit
-                margin-top 38px
+                margin-top 12px
                 max-width 255px
                 top 0
                 bottom 0

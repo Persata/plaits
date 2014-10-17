@@ -5,12 +5,15 @@ FORMAT: 1A
 # Group Introduction
 Plaits is a form creation, validation and rendering library for Node.js.
 
-It supports both synchronous and asynchronous validation (via [Promises](https://github.com/petkaantonov/bluebird/)), and comes with many built-in validators which are provided
+It supports both synchronous and asynchronous validation (via [Promises](https://github.com/petkaantonov/bluebird/)), and comes with many built-in validators, many of which are provided
 by the excellent [validator.js library](https://github.com/chriso/validator.js).
 
 It is intended for use with [Express](http://expressjs.com/), but can be used with other libraries and frameworks too.
 
-Source is available on [GitHub](https://github.com/Persata/plaits), and comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
+Plaits is inspired by the form validation features found in frameworks such as [.NET MVC](http://www.asp.net/mvc/mvc4),
+and thanks goes to the great work done on the [Bookshelf ORM](https://github.com/tgriesser/bookshelf) for additional inspiration and helping with some underlying code principles.
+
+The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
 # Group Latest Release - 0.1.0
 Build Status - [![Build Status](https://travis-ci.org/Persata/plaits.svg)](https://travis-ci.org/Persata/plaits)
@@ -19,11 +22,14 @@ Dependencies - [![Dependency Status](https://gemnasium.com/Persata/plaits.svg)](
 
 Code Coverage - [![Coverage Status](https://img.shields.io/coveralls/Persata/plaits.svg)](https://coveralls.io/r/Persata/plaits?branch=master)
 
+Please feel free to report bugs and suggest features you'd like to see on the [Plaits GitHub Issues Page](https://github.com/Persata/plaits/issues),
+or send tweets to [@persata](https://twitter.com/persata).
+
 [Changelog](#changelog)
 
 # Group Form Models
 
-Plaits models are simply Backbone models with different functionality.
+Plaits models are simply [Backbone](http://backbonejs.org/) models with different functionality.
 
 A model **must** be given a name, and a list of fields. It also takes an optional list of validators [(examples later)](#provided-validators).
 
@@ -92,9 +98,26 @@ email_address => 'Email Address'
 confirm_password => 'Confirm Password'
 ```
 
+## Model Defaults [/]
+
+You can specify the defaults for model values using the ```defaults``` key:
+
+```
+// Register Form Declaration
+var RegisterForm = Plaits.Model.extend(
+  {
+    ...
+    defaults: {
+      'email_address': 'email@example.com'
+    }
+    ...
+  }
+);
+```
+
 ## Model Instantiation [/]
 
-To instantiate a form model, simply require & use ```new```:
+To instantiate a form model, simply require it (if necessary) & use ```new```:
 ```
 // Require
 var RegisterForm = require('../forms/register');
@@ -117,6 +140,8 @@ All built in validators take an optional custom error message if you wish to ove
 
 You can use the string ```{{label}}``` in your custom error messages to have the label for the field automatically inserted,
 for example the string '{{label}} must be a minimum of 10 characters' could produce 'Your password must be a minimum of 10 characters'.
+
+There are also other strings you can use depending on the validator, such as ```{{version}}``` for IP Address, ```{{minLength}}``` for minimum length etc. Each is described below.
 
 ## Required [/]
 Whether this field is required.
@@ -147,6 +172,24 @@ maxLength(maxLength, customErrorMessage)
 ```
 
 ## Length [/]
+This validator can be used to ensure an exact, minimum, or a range length of characters.
+
+Ensure that if you are passing lengths that they are ints and not strings, so 6 instead of '6'.
+
+##### Arguments
+
+It takes between 1 and 3 arguments, as follows:
+
+  - 1 Argument
+      - An exact length for the string
+  - 2 Arguments
+      - Argument 1: A minimum OR exact length for the string
+      - Argument 2: A maximum length for the string OR a custom error message
+  - 3 Arguments
+      - Argument 1: A minimum length for the string
+      - Argument 2: A maximum length for the string
+      - Argument 3: A custom error message
+
 ```
 length(args...)
 ```
@@ -169,11 +212,55 @@ alphanumeric(customErrorMessage)
 ```
 
 ## Url [/]
+This validator ensures that the value provided to the model is a valid URL.
+
+##### Arguments
+
+It takes between 0 and 2 arguments, as follows:
+
+  - 0 Arguments:
+      - Default options from below, default error message returned.
+  - 1 Argument, either:
+      - An object specifying the options to use for validation (see below), or
+      - A custom error message
+  - 2 Arguments
+      - Argument 1: An object specifying the options to use for validation (see below)
+      - Argument 2: A custom error message
+
+##### Declaration
+
 ```
 url(args...)
 ```
 
+##### Default Validation Options
+```
+{
+  protocols: ['http','https','ftp'],
+  require_tld: true,
+  require_protocol: false,
+  allow_underscores: false,
+  host_whitelist: false,
+  host_blacklist: false
+}
+```
+
 ## IP Address [/]
+This validator ensures that the value provided to the model is a valid IP address. It can be used to validate version 4 or version 6 addresses, or can be version agnostic.
+
+##### Arguments
+
+It takes between 0 and 2 arguments, as follows:
+
+  - 0 Arguments:
+      - IP Address matching either version 4 or version 6, default error message returned.
+  - 1 Argument, either:
+      - An int (not a string!) that describes the version of IP address (4 or 6), or,
+      - A custom error message
+  - 2 Arguments
+      - Argument 1: An int (not a string!) that describes the version of IP address (4 or 6)
+      - Argument 2: A custom error message
+
 ```
 ipAddress(args...)
 ```
@@ -218,9 +305,9 @@ date(customErrorMessage)
 ```
 
 ## Date with Specific Format [/]
-This validator should be provided a date format string.
+This validator will check that the value provided to the form for validation is a valid date, and is in the format specified.
 
-It will check that the value provided to the form for validation is a valid date, and is in the format specified.
+It should be provided a date format string as an argument.
 
 This validator is backended by the [moment.js library](https://github.com/moment/moment/).
 
@@ -342,17 +429,127 @@ router.post('/test', function(req, res) {
 
 # Group Form Validation
 
-The main intention of Plaits is to validate the data passed to the model and return feedback based on the validation result.
+The main use of Plaits is to validate the data passed to the model and return feedback based on the validation result.
+
+Validation can be done synchronously or asynchronously depending on the requirements of the form - if using all synchronous validators, then you can validate synchronously
+for simpler flow control. If there is a validator that needs to be asynchronous (such as checking a web service or querying a database), then you can validate asynchronously
+using Promises.
+
+All current stock validators are synchronous, with the exception of the undocumented and yet unfinished File validators (see [coming soon](#coming-soon)).
 
 ## Validation [/]
 
+##### Asynchronous Validation
+
+To validate a model asynchronously, use the ```validate()``` method, which returns a Promise, eventually being fulfilled with the result of the validation.
+
+**Please** note that the Promise is only rejected when something goes wrong with the validation - database connection timeout, exceptions etc.
+If the model is invalid (i.e. the end result is false), the promise is **still** fulfilled, with a false value.
+For a great explanation, see [this cartoon](http://andyshora.com/promises-angularjs-explained-as-cartoon.html).
+
+```
+// Validate
+registerForm.validate().then(function (result) {
+  // ...
+});
+```
+
+##### Synchronous Validation
+
+To validate a model asynchronously, use the ```validateSync()``` method, which returns the result of the validation:
+
+```
+// Validate
+var result = registerForm.validateSync();
+```
+
+## Passing Objects to Validators [/]
+
+It is often the case that if you're using a custom validator, you want to pass extra objects or information into the validation function (current user account etc).
+
+This is possible with the ```additionalVars``` parameter on both the ```validate()``` and ```validateSync()``` methods, which will then pass the objects into the custom validation function:
+
+##### Call Validate
+
+```
+// Current User
+var currentUser = req.user;
+// Validate With Additional Vars
+var result = registerForm.validateSync(currentUser);
+```
+
+##### Inside The Function
+
+```
+// Custom Validator Function
+var differentPassword = function(fieldValue, fieldLabel, formModel, currentUser) {
+  // Do Things With 'currentUser'
+};
+```
+
 ## Errors [/]
+
+Validation would be useless if it were not able to display useful feedback to the user. When a field fails validation, the error is added to the internal ```_errors``` object.
+
+You can get errors from the model with the following functions:
+
+### getErrors [/]
+
+Returns the errors for all fields, or if passed a 'field' parameter, returns errors for only that field.
+
+If there are no errors, returns an empty object.
+
+```
+model.getErrors([field])
+```
+
+### getFirstError [/]
+
+Returns the first error for the specified field.
+
+If there are no errors for that field, returns an empty string.
+
+```
+model.getFirstError(field)
+```
+
+### Errors Object [/]
+
+The errors object is a key:array object that contains an entry for each field that has validation errors, for example:
+
+```
+{
+  'username': [
+    'Username must be at least 8 characters long.',
+    'Username must consist of only letters and numbers.'
+  ],
+  'password': [
+    'Password is a required field.'
+  ]
+}
+```
 
 # Group Events
 
 Plaits models come with custom events that allow you to hook in and modify model behaviour or attributes when triggered.
 
-Events for asynchronous operations (e.g. parse and validate) use [trigger-then](https://github.com/bookshelf/trigger-then), allowing for asynchronous behaviour in your event listeners if necessary.
+## Backbone Events [/]
+
+Since Plaits models are essentially glorified [Backbone](http://backbonejs.org/) models, you have access to all the underlying event functionality
+that Backbone provides. See the Backbone documentation for each of:
+
+  - [on](http://backbonejs.org/#Events-on)
+  - [off](http://backbonejs.org/#Events-off)
+  - [trigger](http://backbonejs.org/#Events-trigger)
+  - [once](http://backbonejs.org/#Events-once)
+  - [listenTo](http://backbonejs.org/#Events-listenTo)
+  - [stopListening](http://backbonejs.org/#Events-stopListening)
+  - [listenToOnce](http://backbonejs.org/#Events-listenToOnce)
+
+
+## Plaits Specific Events [/]
+
+Events use [trigger-then](https://github.com/bookshelf/trigger-then), allowing for asynchronous behaviour in your event listeners if necessary.
 Ensure however, that if you are using asynchronous events that you use the asynchronous versions of ```parseRequest``` and ```validate```.
 
 Specify the events using ```on()``` in your initialize method like so:
@@ -432,15 +629,158 @@ This even fires after a model has been validated.
   });
 ```
 
-# Group Express Middleware & Html
+# Group Express Middleware
+
+# Group Html Helpers
+
+# Group Html Templates
+
+# Group Custom Html Templates
+
+# Group Full Example
+
+Below is a full (although very simple) end-to-end example of creating, rendering and validating a Plaits model using Express.
 
 ## Middleware [/]
 
-## Html Helpers [/]
+Express ```app.js```, before routes:
 
-## Html Templates [/]
+```
+// Require Plaits
+var Plaits = require('plaits');
 
-## Custom Html Templates [/]
+// Plaits Middleware
+app.use(Plaits.ExpressMiddleware());
+```
+
+## Model [/]
+
+Model Declaration, living in ```forms/register.js```:
+
+```
+// Require Plaits
+var Plaits = require('plaits');
+
+// Register Form Declaration
+var RegisterForm = Plaits.Model.extend(
+  {
+    // Form Name
+    name: 'register_form',
+    // Field List
+    fields: [
+      'username',
+      'email_address',
+      'password',
+      'confirm_password'
+    ],
+    // Validators
+    validators: {
+      username: [
+        Plaits.Validators.required(),
+        Plaits.Validators.alphanumeric()
+      ],
+      email_address: [
+        Plaits.Validators.required(),
+        Plaits.Validators.email()
+      ],
+      password: [
+        Plaits.Validators.required(),
+        Plaits.Validators.minLength(8)
+      ],
+      confirm_password [
+        Plaits.Validators.matchProperty('password')
+      ]
+    }
+  }
+);
+
+// Export Form
+module.exports = RegisterForm;
+```
+
+## Routes [/]
+
+Route file, ```routes/account.js```:
+
+```
+// Require Form
+var RegisterForm = require('../forms/register');
+
+// Account Register Route - GET
+router.get('/account/register', function (req, res) {
+    // New Form
+    var registerForm = new RegisterForm();
+    // Render Template, Passing Form
+    res.render('account/register', {
+        registerForm: registerForm
+    });
+});
+
+// Account Register Route - POST
+router.post('/account/register', function (req, res) {
+    // New Form
+    var registerForm = new RegisterForm();
+    // Parse Request & Validate
+    registerForm.parseRequestSync(req).validate().then(function (result) {
+        // Valid?
+        if (result) {
+            // Do Register / Database Stuff Here
+            // ...
+            // Redirect
+            res.redirect('/account/register/success');
+        } else {
+            // Invalid, Re-Render
+            res.render('account/register', {
+                registerForm: registerForm
+            });
+        }
+    }).catch(function (e) {
+        // Something Went Horribly Wrong, Caught A Rejected Promise
+        res.json(e);
+    });
+});
+```
+
+## Template [/]
+
+Register template, ```account/register.jade```:
+
+```
+extends layout
+
+block content
+    form(method='POST')
+        !=Plaits.Html.Template.text(registerForm, 'username')
+        !=Plaits.Html.Template.email(registerForm, 'email')
+        !=Plaits.Html.Template.password(registerForm, 'password')
+        !=Plaits.Html.Template.password(registerForm, 'confirm_password')
+        !=Plaits.Html.Template.submit()
+```
+
+# Group Coming Soon
+
+Here are a few things I plan on incorporating or working on the future.
+
+## File Validation [/]
+
+Any good form library should be able to validate uploaded files.
+I've already written a lot of this functionality (see [lib/validators/file.js](https://github.com/Persata/plaits/blob/master/lib/validators/file.js)).
+
+Unfortunately, the implementation on which I based these used [connect-multiparty](https://github.com/andrewrk/connect-multiparty),
+which is now deprecated and the use of which is being advised against (for [some good reasons](http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html)).
+
+I am looking into alternative implementations.
+
+## More Validators [/]
+
+Extra provided validators are always useful to prevent people from having to write their own, especially if tested and approved. A few that spring to mind:
+
+  - Number Range Validator (Numbers greater than etc.)
+  - Date Range Validator (Dates between X and Y, dates only before Y, etc.)
+
+## Examples Repository [/]
+
+A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
 
