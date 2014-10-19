@@ -16,22 +16,31 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
 # Group Latest Release - 0.1.0
+
+Version 0.1.0.
+
+View the [Changelog](#changelog) below.
+
+# Dependency & Test Status [/]
+
 Build Status - [![Build Status](https://travis-ci.org/Persata/plaits.svg)](https://travis-ci.org/Persata/plaits)
 
 Dependencies - [![Dependency Status](https://gemnasium.com/Persata/plaits.svg)](https://gemnasium.com/Persata/plaits)
 
 Code Coverage - [![Coverage Status](https://img.shields.io/coveralls/Persata/plaits.svg)](https://coveralls.io/r/Persata/plaits?branch=master)
 
+# Contribute [/]
+
 Please feel free to report bugs and suggest features you'd like to see on the [Plaits GitHub Issues Page](https://github.com/Persata/plaits/issues),
 or send tweets to [@persata](https://twitter.com/persata).
-
-[Changelog](#changelog)
 
 # Group Form Models
 
 Plaits models are simply [Backbone](http://backbonejs.org/) models with different functionality.
 
 A model **must** be given a name, and a list of fields. It also takes an optional list of validators [(examples later)](#provided-validators).
+
+## Model Example [/]
 
 A basic model example:
 
@@ -125,8 +134,6 @@ var RegisterForm = require('../forms/register');
 // New Register Form
 var registerForm = new RegisterForm();
 ```
-
-# Group Model Functions
 
 # Group Provided Validators
 
@@ -633,11 +640,320 @@ This even fires after a model has been validated.
 
 # Group Express Middleware
 
+Plaits provides a middleware for Express that gives you the ability to render form fields automatically in your templates.
+
+```
+Plaits.ExpressMiddleware([options])
+```
+
+# Options [/]
+
+The middleware takes an options object, with the defaults:
+
+```
+{
+  name: 'Plaits', // Helper Name for res.locals
+  templatePaths: ['node_modules/plaits/lib/templates'], // Template Locations, see Html Templates
+  templateExtension: 'jade', // Template Extension, see Html Templates
+  renderSpecialAttributesValue: true, // Whether to Render Vals for Some Attributes (eg. muted)
+  errorCssClass: 'error', // Error CSS Class On Generated Form Elements
+  requiredCssClass: 'required', // Required CSS Class on Generated Form Elements
+  errorContainerTag: 'div', // Container Wrapper Tag For Generated Error Output
+  errorContainerClass: 'error-message', // Container Wrapper Class for firstErrorFor()
+  errorSummaryContainerClass: 'error-summary', // Container Class for Generated Error Summary
+  errorSummaryText: 'Please fix the following validation errors:' // Error Summary Text
+}
+```
+
+See the below sections for further explanations on some of these options.
+
 # Group Html Helpers
+
+When using the Middleware specified above, it will add a helper to your `res.locals` which is then available in your templates.
+
+You can specify the name of this helper by passing the option ```name``` as part of the Middleware, which defaults to `Plaits`.
+
+You can also use multiple middleware if you need different behaviour by specifying different names for each, for example:
+
+```
+// Plaits Frontend Middleware
+app.use(Plaits.ExpressMiddleware());
+
+// Plaits Admin Middleware
+app.use(Plaits.ExpressMiddleware({name: 'PlaitsAdmin', requiredCssClass: 'required-input'}));
+```
+
+Each of the following helpers is accessible under the Html property of your middleware item;
+
+```
+// Defaults
+Plaits.Html.textFieldFor(...)
+// Using 'PlaitsAdmin'
+PlaitsAdmin.Html.textFieldFor(...)
+```
+
+# button [/]
+Renders a button.
+```
+button: function (label, [htmlAttributes])
+```
+
+# resetButton [/]
+Render a reset button.
+```
+resetButton: function (text, [htmlAttributes])
+```
+
+# submitButton [/]
+Render a submit button.
+```
+submitButton: function (text, [htmlAttributes])
+```
+
+# labelFor [/]
+Generates a label for a specified input.
+
+If the field is required, it will contain `<span>*</span>` next to the text to show the required state. It will also have the `requiredCssClass`.
+
+In the case that this field fails validation, it will also have `errorCssClass` added.
+
+```
+labelFor: function (model, attribute, [htmlAttributes])
+```
+
+# firstErrorFor [/]
+This will show the first error for the given model's field/attribute.
+
+The wrapping tag is specified by `errorContainerTag` (defaults to `div`) and the class will be `errorContainerClass` (defaults to `error-message`).
+```
+firstErrorFor: function (model, attribute, [htmlAttributes])
+```
+
+# errorsFor [/]
+Generates a container with all errors for the given model's field/attribute.
+
+The wrapping tag is specified by `errorContainerTag` (defaults to `div`) and the class will be `errorSummaryContainerClass` (defaults to `error-summary`).
+
+```
+errorsFor: function (model, attribute, [htmlAttributes])
+```
+
+# errorSummary [/]
+Generates an error summary with all errors for the entire model.
+
+Takes an optional `summaryText` parameter, which will be displayed at the top of the summary.
+
+This defaults to 'Please fix the following validation errors', or whatever you have passed into the initial Middleware options.
+
+```
+errorSummary: function (model, [summaryText], [htmlAttributes])
+```
+
+# textFieldFor [/]
+Render a text input for the given model's attribute.
+
+```
+textFieldFor: function (model, attribute, [htmlAttributes])
+```
+
+# emailFieldFor [/]
+Render an email input for the given model's attribute.
+
+```
+emailFieldFor: function (model, attribute, [htmlAttributes])
+```
+
+# textAreaFor [/]
+Render a text area for the given model's attribute.
+
+```
+textAreaFor: function (model, attribute, [htmlAttributes])
+```
+
+# numberFieldFor [/]
+Render a number input for the given model's attribute.
+
+```
+numberFieldFor: function (model, attribute, [htmlAttributes])
+```
+
+# rangeFieldFor [/]
+Render a range input for the given model's attribute.
+
+```
+rangeFieldFor: function (model, attribute, [htmlAttributes])
+```
+
+# colorFieldFor [/]
+Render a color input for the given model's attribute.
+
+```
+colorFieldFor: function (model, attribute, [htmlAttributes])
+```
+
+# searchFieldFor [/]
+Render a search input for the given model's attribute.
+
+```
+searchFieldFor: function (model, attribute, [htmlAttributes])
+```
+# dateFieldFor [/]
+Render a date input for the given model's attribute.
+
+```
+dateFieldFor: function (model, attribute, [htmlAttributes])
+```
+# timeFieldFor [/]
+Render a time input for the given model's attribute.
+
+```
+timeFieldFor: function (model, attribute, [htmlAttributes])
+```
+# telFieldFor [/]
+Render a tel input for the given model's attribute.
+
+```
+telFieldFor: function (model, attribute, [htmlAttributes])
+```
+# urlFieldFor [/]
+Render a url input for the given model's attribute.
+
+```
+urlFieldFor: function (model, attribute, [htmlAttributes])
+```
+# hiddenFieldFor [/]
+Render a hidden input for the given model's attribute.
+
+```
+hiddenFieldFor: function (model, attribute, [htmlAttributes])
+```
+# passwordFieldFor [/]
+Render a password input for the given model's attribute.
+
+```
+passwordFieldFor: function (model, attribute, [htmlAttributes])
+```
+# fileFieldFor [/]
+Render a file input for the given model's attribute.
+
+```
+fileFieldFor: function (model, attribute, [htmlAttributes])
+```
+# selectFor [/]
+Render a select field for the given model's attribute.
+
+Takes an `items` parameter, which should be a key:value object specifying which items should be the options.
+
+```
+selectFor: function (model, attribute, items, [htmlAttributes])
+```
+# checkboxFor [/]
+Render a checkbox input for the given model's attribute.
+
+```
+checkboxFor: function (model, attribute, [htmlAttributes])
+```
+# radioFor [/]
+Render a radio input for the given model's attribute.
+
+```
+radioFor: function (model, attribute, [htmlAttributes])
+```
+# checkboxListFor [/]
+Render multiple checkbox fields for the given model's attribute.
+
+Takes an `items` parameter, which should be a key:value object specifying which items should be individually rendered.
+
+```
+checkboxListFor: function (model, attribute, items, [htmlAttributes])
+```
+# radioListFor [/]
+Render multiple radio fields for the given model's attribute.
+
+Takes an `items` parameter, which should be a key:value object specifying which items should be individually rendered.
+
+```
+radioListFor: function (model, attribute, items, [htmlAttributes])
+```
 
 # Group Html Templates
 
+In addition to the [Html Helpers](#html-helpers) specified above, Plaits also comes with a set of ready-built Html templates that are wrappers for the above helpers.
+
+The Html templates are built with [Jade](http://jade-lang.com/).
+
+Each of the field helpers specified above has a corresponding template which contains a label, a field of the specified type, and will render any validation errors from that field.
+
+The template functions are named the same as their helpers, only without the word 'For' in the function name, so `email()`, `text()` etc.
+
+# Location [/]
+
+If you wish the view the default templates, they are in `lib/templates`.
+
+# Usage [/]
+
+The templates are accessible inside your templates via your middleware, like so:
+
+```
+// Default 'Plaits'
+Plaits.Html.Template.text(...)
+Plaits.Html.Template.email(...)
+Plaits.Html.Template.select(...)
+
+// Different Name Specified For Middleware, e.g. 'PlaitsAdmin'
+PlaitsAdmin.Html.Template.textArea(...)
+PlaitsAdmin.Html.Template.number(...)
+PlaitsAdmin.Html.Template.password(...)
+```
+
 # Group Custom Html Templates
+
+The Plaits templates can be customised in a few different ways.
+
+When specifying your middleware options for Plaits, it is possible to pass a custom `templatePaths` option.
+
+Plaits templates are cached at render time for performance, so you will need to restart your application server when changing the templates.
+
+This option can be a single path, or an array, of locations where Plaits should look for form html templates:
+
+```
+// Resolve Path
+var myTemplatePath: path.join(__dirname, 'views', 'forms');
+// Use Middleware
+app.use(Plaits.ExpressMiddleware({templatePaths: [myTemplatePath]));
+```
+
+# Overriding Defaults [/]
+
+Simply copy the templates you wish to override from `lib/templates` to your new location - in the above example `views/forms`.
+
+When Plaits scans the directories for the requested template, e.g. the email template, it will prioritise the custom location over the default location,
+and will render the one residing in `views/forms`.
+
+# Entirely Custom Templates [/]
+
+Since you may wish to have multiple versions of an template, e.g. different classes or wrappers, the Plaits middleware provides the following function:
+
+```
+/**
+ * Render a Custom Template.
+ * Takes template name, model, attribute and any additional parameters to pass to the template.
+ * @param templateName string
+ * @param model PlaitsModel
+ * @param attribute string
+ * @param additionalParams Object
+ * @return {*}
+ */
+render: function (templateName, model, attribute, [additionalParams])
+```
+
+This function will look for the template with `templateName` and will render that template if found.
+
+Use the `additionalParams` parameter to pass any other parameters required for the rendering of the template, e.g. a list of items for a `select` input.
+
+While templates can have customisable file extensions (via the `templateExtension` option passed to your middleware), the templates **MUST**
+be in the [Jade](http://jade-lang.com/) template language. While this is more opinionated that is pleasant, Jade is at least very well supported,
+documented and tested.
 
 # Group Full Example
 
@@ -731,7 +1047,7 @@ router.post('/account/register', function (req, res) {
             // Redirect
             res.redirect('/account/register/success');
         } else {
-            // Invalid, Re-Render
+            // Invalid, Re-Render The Template
             res.render('account/register', {
                 registerForm: registerForm
             });
@@ -758,6 +1074,8 @@ block content
         !=Plaits.Html.Template.password(registerForm, 'confirm_password')
         !=Plaits.Html.Template.submit()
 ```
+
+And that is enough to render the form, handle the POST request, validate the form and display any validation errors to the user.
 
 # Group Coming Soon
 
