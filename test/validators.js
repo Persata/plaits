@@ -762,4 +762,76 @@ describe('Plaits Individual Validation Functions', function () {
         done();
     });
 
+    /**
+     * Minimum - Valid
+     */
+    it('should validate good minimum values', function (done) {
+        // Functions
+        Plaits.Validators.min(5)('6').should.equal(true);
+        Plaits.Validators.min(10)('12.0').should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Minimum - Invalid
+     */
+    it('should invalidate bad minimum values', function (done) {
+        // Functions
+        Plaits.Validators.min(5)('4', 'Price').should.equal('Price must be greater than or equal to 5.');
+        Plaits.Validators.min(10.5)('9.0', 'Price').should.equal('Price must be greater than or equal to 10.5.');
+        Plaits.Validators.min(10.5)('NaN', 'Price').should.equal('Price must be greater than or equal to 10.5.');
+        Plaits.Validators.min(20, '{{label}} must be at least {{min}}')('15', 'Price', {}, {}).should.equal('Price must be at least 20');
+        // Done
+        done();
+    });
+
+    /**
+     * Maximum - Valid
+     */
+    it('should validate good maximum values', function (done) {
+        // Functions
+        Plaits.Validators.max(5)('4').should.equal(true);
+        Plaits.Validators.max(10)('9.0').should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Maximum - Invalid
+     */
+    it('should invalidate bas maximum values', function (done) {
+        // Functions
+        Plaits.Validators.max(5)('6', 'Price').should.equal('Price must be less than or equal to 5.');
+        Plaits.Validators.max(10.5)('11.0', 'Price').should.equal('Price must be less than or equal to 10.5.');
+        Plaits.Validators.max(10.5)('NaN', 'Price').should.equal('Price must be less than or equal to 10.5.');
+        Plaits.Validators.max(20, '{{label}} must be no more than {{max}}')('25', 'Price', {}, {}).should.equal('Price must be no more than 20');
+        // Done
+        done();
+    });
+
+    /**
+     * Range - Valid
+     */
+    it('should validate good range values', function (done) {
+        // Functions
+        Plaits.Validators.range(5, 10)('6').should.equal(true);
+        Plaits.Validators.range(10.25, 10.75)('10.5').should.equal(true);
+        // Done
+        done();
+    });
+
+    /**
+     * Range - Invalid
+     */
+    it('should invalidate bad range values', function (done) {
+        // Functions
+        Plaits.Validators.range(5, 10)('11', 'Height').should.equal('Height must be greater than or equal to 5 and less than or equal to 10.');
+        Plaits.Validators.range(10.25, 10.75)('11', 'Height').should.equal('Height must be greater than or equal to 10.25 and less than or equal to 10.75.');
+        Plaits.Validators.range(10.25, 10.75)('NaN', 'Height').should.equal('Height must be greater than or equal to 10.25 and less than or equal to 10.75.');
+        Plaits.Validators.range(10.25, 10.75, 'Please ensure that {{label}} is >= {{min}} and <= {{max}}')('NaN', 'Height', {}, {}).should.equal('Please ensure that Height is >= 10.25 and <= 10.75');
+        // Done
+        done();
+    });
+
 });
