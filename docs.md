@@ -15,9 +15,9 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
-# Group Latest Release - 0.1.0
+# Group Latest Release - 0.1.1
 
-Version 0.1.0.
+Version 0.1.1.
 
 View the [Changelog](#changelog) below.
 
@@ -159,25 +159,25 @@ In most cases, this will check whether the value is null or not - null values ar
 
 When generating labels using the Html helpers and templates, the label text will be appended with an asterisk.
 ```
-required(customErrorMessage)
+required([customErrorMessage])
 ```
 
 ## Email [/]
 Checks if the provided value is an email address.
 ```
-email(customErrorMessage)
+email([customErrorMessage])
 ```
 
 ## Minimum Length [/]
 Checks that the value matches or exceeds the minimum length provided.
 ```
-minLength(minLength, customErrorMessage)
+minLength(minLength, [customErrorMessage])
 ```
 
 ## Maximum Length [/]
 Checks that the value matches or is less than the maximum length provided.
 ```
-maxLength(maxLength, customErrorMessage)
+maxLength(maxLength, [customErrorMessage])
 ```
 
 ## Length [/]
@@ -205,19 +205,19 @@ length(args...)
 ## Numeric [/]
 Ensures the value provided is a numeric value.
 ```
-numeric(customErrorMessage)
+numeric([customErrorMessage])
 ```
 
 ## Alpha [/]
 Ensures the value provided only contains letters.
 ```
-alpha(customErrorMessage)
+alpha([customErrorMessage])
 ```
 
 ## Alphanumeric [/]
 Ensures the value provided only contains letters and numbers.
 ```
-alphanumeric(customErrorMessage)
+alphanumeric([customErrorMessage])
 ```
 
 ## Url [/]
@@ -277,40 +277,40 @@ ipAddress(args...)
 ## Credit Card [/]
 Ensures the value provided is a valid credit card number.
 ```
-creditCard(customErrorMessage)
+creditCard([customErrorMessage])
 ```
 
 ## Equals [/]
 When provided with an ```equalValue``` parameter, this will make sure the value provided to the form equals the ```equalValue``` provided.
 ```
-equals(equalValue, customErrorMessage)
+equals(equalValue, [customErrorMessage])
 ```
 
 ## One Of [/]
 This validator should be passed an array of acceptable values, and if the value provided to the form for validation is one of those, it will pass validation.
 ```
-oneOf(allowedValues, customErrorMessage)
+oneOf(allowedValues, [customErrorMessage])
 ```
 
 ## Contains [/]
 This validator should be passed a string as the first parameter.
 If the value provided to the form for validation contains this value as a substring, it will pass validation.
 ```
-contains(containsValue, customErrorMessage)
+contains(containsValue, [customErrorMessage])
 ```
 
 ## Matches [/]
 This validator should be passed a regex as the first parameter.
 If the value provided to the form for validation matches this regex, it will pass validation.
 ```
-matches(regexValue, customErrorMessage)
+matches(regexValue, [customErrorMessage])
 ```
 
 ## Date [/]
 This validator will loosely check that the provided value for validation is a date.
 It can be of any format, even a Unix timestamp.
 ```
-date(customErrorMessage)
+date([customErrorMessage])
 ```
 
 ## Date with Specific Format [/]
@@ -322,7 +322,7 @@ This validator is backended by the [moment.js library](https://github.com/moment
 
 When specifying a custom error message, you may use ```{{dateFormat}}``` to have the specified format injected into your custom error message.
 ```
-dateForm(dateFormat, customErrorMessage)
+dateForm(dateFormat, [customErrorMessage])
 ```
 
 ## Match Another Property / Field [/]
@@ -332,19 +332,37 @@ When validation runs, it will check that the value provided to the form for vali
 
 This is usually used for comparing password & confirm password fields [(see the example above)](#form-models).
 ```
-matchProperty(propertyKey, customErrorMessage)
+matchProperty(propertyKey, [customErrorMessage])
 ```
 
 ## Int [/]
 This validator will check that the value provided to the form is an integer.
 ```
-int(customErrorMessage)
+int([customErrorMessage])
 ```
 
 ## Float [/]
 This validator will check that the value provided to the form is floating point number.
 ```
-float(customErrorMessage)
+float([customErrorMessage])
+```
+
+## Min [/]
+This validator will check that the value provided to the form is greater than or equal to the minimum value given.
+```
+min(min, [customErrorMessage])
+```
+
+## Max [/]
+This validator will check that the value provided to the form is less than or equal to the maximum value given.
+```
+max(max, [customErrorMessage])
+```
+
+## Range [/]
+This validator will check that the value provided to the form is between or equal to the minimum and maximum values given.
+```
+range(min, max, [customErrorMessage])
 ```
 
 # Group Custom Validators
@@ -1093,9 +1111,8 @@ I am looking into alternative implementations.
 
 ## More Validators [/]
 
-Extra provided validators are always useful to prevent people from having to write their own, especially if tested and approved. A few that spring to mind:
+Extra provided validators are always useful to prevent people from having to write their own, especially if tested and approved, for example:
 
-  - Number Range Validator (Numbers greater than etc.)
   - Date Range Validator (Dates between X and Y, dates only before Y, etc.)
 
 ## Examples Repository [/]
@@ -1103,6 +1120,12 @@ Extra provided validators are always useful to prevent people from having to wri
 A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
+
+##### 0.1.1
+  - Added New Validators
+    - [Min](#provided-validators-min)
+    - [Max](#provided-validators-max)
+    - [Range](#provided-validators-range)
 
 ##### 0.1.0 - Initial Release
   - Initial Release
