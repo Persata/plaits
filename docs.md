@@ -107,6 +107,8 @@ email_address => 'Email Address'
 confirm_password => 'Confirm Password'
 ```
 
+This will return either the custom label you have set in the model itself, or will generate one.
+
 ## Model Defaults [/]
 
 You can specify the defaults for model values using the ```defaults``` key:
@@ -133,6 +135,81 @@ var RegisterForm = require('../forms/register');
 
 // New Register Form
 var registerForm = new RegisterForm();
+```
+
+## getFieldIdentifier [/]
+
+Gets the field identifier for a model's field - this is used to generate a form name / ID that the ```parseRequest()``` functions can automatically parse.
+
+It is made up of the field's name and the model's name joined with an underscore - see [Form Request Parsing](#form-request-parsing).
+
+```
+// Get Field Identifier
+model.getFieldIdentifier(field);
+
+// Examples
+console.log(registerForm.getFieldIdentifier('email_address'));
+// => 'register_form_email_address'
+
+console.log(registerForm.getFieldIdentifier('username'));
+// => 'register_form_username'
+```
+
+## getLabelText [/]
+
+Gets the label test for a model's field. Used to fetch or generate the label text.
+
+```
+// Get Label for a Field
+model.getLabelText(field);
+
+// Examples
+console.log(registerForm.getLabelText('email_address'));
+// => 'Email Address'
+
+console.log(registerForm.getLabelText('username'));
+// => 'Username'
+```
+
+## isRequired [/]
+
+Checks the provided validators to see if the given field is required. This is achieved by analysing the function names for ```requiredValidator```.
+
+```
+// Get Required Status
+model.isRequired(field);
+
+// Examples
+console.log(registerForm.isRequired('email_address'));
+// => true
+```
+
+## addError [/]
+
+Adds the specified error message to the specified field. Use if you want to manually add an error message for a field to the form.
+
+```
+// Add an Error
+model.addError(field, errorMessage);
+
+// Example
+registerForm.addError('username', 'Manually adding this error message.');
+
+console.log(registerForm.getFirstError('username'));
+// => 'Manually adding this error message.'
+```
+
+## hasErrors [/]
+
+Check whether the specified field has any errors attached to it.
+
+```
+// Check For Errors
+model.hasErrors(field);
+
+// Example
+console.log(registerForm.hasErrors('username'));
+// => false
 ```
 
 # Group Provided Validators
