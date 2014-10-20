@@ -157,7 +157,7 @@ console.log(registerForm.getFieldIdentifier('username'));
 
 ## getLabelText [/]
 
-Gets the label test for a model's field. Used to fetch or generate the label text.
+Gets the label text for a model's field. Used to fetch or generate the label text.
 
 ```
 // Get Label for a Field
