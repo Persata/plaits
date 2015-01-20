@@ -28,7 +28,7 @@
     "jade": "^1.8.2",
     "lodash": "~2.4.1",
     "mmmagic": "~0.3.8",
-    "moment": "~2.8.3",
+    "moment": "~2.9.0",
     "simple-extend": "^0.1.0",
     "trigger-then": "~0.3.0",
     "validator": "^3.26.0"
