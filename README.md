@@ -52,7 +52,7 @@ var RegisterForm = Plaits.Model.extend(
         Plaits.Validators.required(),
         Plaits.Validators.minLength(8)
       ],
-      confirm_password [
+      confirm_password: [
         Plaits.Validators.matchProperty('password')
       ]
     }
