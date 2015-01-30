@@ -34,14 +34,16 @@
     "validator": "^3.26.0"
   },
   "devDependencies": {
+    "connect-multiparty": "^1.2.5",
     "express": "^4.10.6",
+    "fs-extra": "^0.16.3",
     "istanbul": "^0.3.5",
     "knex": "^0.7.3",
     "mocha": "^2.0.1",
+    "multer": "~0.1.7",
     "should": "^4.4.1",
     "sqlite3": "^3.0.4",
-    "supertest": "^0.15.0",
-    "multer": "~0.1.7"
+    "supertest": "^0.15.0"
   },
   "scripts": {
     "test": "make test",

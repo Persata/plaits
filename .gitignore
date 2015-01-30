@@ -4,3 +4,5 @@
 node_modules
 # Istanbul Coverage Folder
 coverage
+# Test File Upload Location
+test/uploads

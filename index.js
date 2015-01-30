@@ -14,8 +14,8 @@ var Model = require('./lib/model');
 // Validators
 var Validators = require('./lib/validators');
 
-// File Mappings
-var FileMappings = require('./lib/mappings');
+// File Fild Mappings
+var FileFieldMappings = require('./lib/mappings');
 
 // Express Middleware
 var ExpressMiddleware = require('./lib/middleware');
@@ -55,10 +55,10 @@ var Plaits = (function () {
     Plaits.ExpressMiddleware = ExpressMiddleware;
 
     /**
-     * File Mappings
+     * File Field Mappings
      * @type {*|exports}
      */
-    Plaits.FileMappings = FileMappings;
+    Plaits.FileFieldMappings = FileFieldMappings;
 
     /**
      * Extend

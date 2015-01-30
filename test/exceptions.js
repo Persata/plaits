@@ -60,7 +60,7 @@ describe('Plaits Exceptions', function () {
     /**
      * Throw Error on File Size Validator
      */
-    it('should throw an', function (done) {
+    it('should throw an error if the size provided to the validator is not a valid size format', function (done) {
         // New Form
         var loginForm = new LoginForm();
         // Try To Validate
