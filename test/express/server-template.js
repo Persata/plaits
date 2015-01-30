@@ -4,6 +4,9 @@ var path = require('path');
 var Plaits = require('../../index');
 var app = express();
 
+// Configure
+Plaits.setValidatorConfig({fileValueMappings: Plaits.FileMappings.Default});
+
 // New Middleware With Some Custom Options
 var expressMiddleware = new Plaits.ExpressMiddleware({
     templatePaths: path.join(__dirname, '..', 'templates'),

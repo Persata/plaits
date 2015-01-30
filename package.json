@@ -40,7 +40,8 @@
     "mocha": "^2.0.1",
     "should": "^4.4.1",
     "sqlite3": "^3.0.4",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "multer": "~0.1.7"
   },
   "scripts": {
     "test": "make test",
