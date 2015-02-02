@@ -15,9 +15,9 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
-# Group Latest Release - 0.1.2
+# Group Latest Release - 0.1.3
 
-Version 0.1.2.
+Version 0.1.3.
 
 View the [Changelog](#changelog) below.
 
@@ -1282,6 +1282,9 @@ Extra provided validators are always useful to prevent people from having to wri
 A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
+
+##### 0.1.3
+  - Fixed issue with mime match validator and file field mapping
 
 ##### 0.1.2
   - Added file validation support (required, minSize, maxSize, mimeTypes & enforceMimeMatch - see [File Validators](#file-validators))
