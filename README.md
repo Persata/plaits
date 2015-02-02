@@ -8,7 +8,7 @@ Plaits
 Plaits is a form creation, validation and rendering library for Node.js.
 
 It supports both synchronous and asynchronous validation (via [Promises](https://github.com/petkaantonov/bluebird/)), and comes with many built-in validators, many of which are provided
-by the excellent [validator.js library](https://github.com/chriso/validator.js).
+by the excellent [validator.js library](https://github.com/chriso/validator.js). Plaits also supports file upload validation, including size and MIME-Type checking.
 
 It is intended for use with [Express](http://expressjs.com/), but can be used with other libraries and frameworks too.
 
@@ -54,6 +54,11 @@ var RegisterForm = Plaits.Model.extend(
       ],
       confirm_password: [
         Plaits.Validators.matchProperty('password')
+      ],
+      avatar: [
+        Plaits.Validators.File.required(),
+        Plaits.Validators.File.maxSize('120kB'),
+        Plaits.Validators.File.mimeTypes(['image/*'])
       ]
     }
   }
