@@ -1,7 +1,9 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Plaits.js</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>pre code{display:block;padding:.5em;color:#333}
-/* Highlight.js Theme Tomorrow */
-.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
-font-family 'Roboto'sans-serif !important,
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Plaits.js</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
+pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
+pre code{display:block;padding:.5em;background:#272b30}
+.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body {
+  font-family: 'Roboto' sans-serif !important;
+}
 h1,
 h2,
 h3,
@@ -25,22 +27,21 @@ h5:hover a {
   display: inline;
 }
 code {
-  color: #444;
-  background-color: #ddd;
+  color: #222;
+  background-color: #aaa;
   font-family: 'Inconsolata' monospace !important;
 }
 a[data-target] {
   cursor: pointer;
 }
 h4 {
-  padding-top: 6px;
-  margin-top: 12px;
+  margin-top: 18px;
   font-size: 24px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #555;
   padding-bottom: 6px;
 }
 h5 {
-  font-size: 18px;
+  font-size: 20px;
 }
 .back-to-top {
   position: fixed;
@@ -48,7 +49,8 @@ h5 {
   bottom: 0px;
   right: 24px;
   padding: 4px 8px;
-  background-color: #eee;
+  color: #aaa;
+  background-color: #171b20;
   text-decoration: none !important;
   border-top: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
@@ -59,11 +61,9 @@ h5 {
 .panel {
   overflow: hidden;
 }
-.panel-heading {
-  padding: 0;
-}
 .panel-heading code {
   margin-left: 3px;
+  color: #000;
   background-color: rgba(255,255,255,0.7);
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -72,8 +72,8 @@ h5 {
   word-wrap: break-word;
 }
 .panel-heading h3 {
-  padding: 15px 20px;
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 a.list-group-item:hover {
   background-color: #f8f8f8;
@@ -85,7 +85,6 @@ a.list-group-item:hover {
   text-indent: 16px;
 }
 .list-group-item {
-  padding: 4px;
   padding-left: 16px;
 }
 .list-group-item .toggle .open {
@@ -101,8 +100,8 @@ a.list-group-item:hover {
   display: block;
 }
 a.list-group-item:hover {
-  background-color: #f5f5f5;
-  border-left-color: #555;
+  background-color: #4b5159;
+  border-left-color: #c8c8c8;
 }
 a.list-group-item {
   font-size: 13px;
@@ -112,10 +111,10 @@ a.list-group-item {
 }
 a.list-group-item.heading {
   font-size: 15px;
-  background-color: #ecf0f1;
+  background-color: #3e444c;
 }
 a.list-group-item.heading:hover {
-  background-color: #f5f5f5;
+  background-color: #4b5159;
 }
 .list-group-item.collapse {
   display: none;
@@ -137,7 +136,7 @@ a.list-group-item.heading:hover {
 }
 #nav {
   width: inherit;
-  margin-top: 12px;
+  margin-top: 38px;
   max-width: 255px;
   top: 0;
   bottom: 0;
@@ -145,7 +144,7 @@ a.list-group-item.heading:hover {
   padding-bottom: 12px;
   overflow-y: auto;
 }
-@media( max-width: 1199px) {
+@media (max-width: 1199px) {
   #nav {
     max-width: 212px;
   }
@@ -162,19 +161,19 @@ a.list-group-item.heading:hover {
     m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-55936825-1', 'auto');
-ga('send', 'pageview');</script></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.1-menu" href="#latest-release---0.1.1" class="list-group-item heading collapsed">Latest Release - 0.1.1</a><div id="latest-release---0.1.1-menu"><a href="#latest-release---0.1.1-dependency-&amp;-test-status" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Dependency &amp; Test Status</a><a href="#latest-release---0.1.1-contribute" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contribute</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Example</a><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-defaults" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Defaults</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a><a href="#form-models-getfieldidentifier" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getFieldIdentifier</a><a href="#form-models-getlabeltext" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getLabelText</a><a href="#form-models-isrequired" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">isRequired</a><a href="#form-models-adderror" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">addError</a><a href="#form-models-haserrors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">hasErrors</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a><a href="#provided-validators-min" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Min</a><a href="#provided-validators-max" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Max</a><a href="#provided-validators-range" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Range</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-passing-objects-to-validators" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Passing Objects to Validators</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a><a href="#form-validation-geterrors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getErrors</a><a href="#form-validation-getfirsterror" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getFirstError</a><a href="#form-validation-errors-object" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors Object</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-backbone-events" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Backbone Events</a><a href="#events-plaits-specific-events" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Plaits Specific Events</a><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-menu" href="#express-middleware" class="list-group-item heading collapsed">Express Middleware</a><div id="express-middleware-menu"><a href="#express-middleware-options" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Options</a></div></div><div class="list-group"><a data-toggle="" data-target="#html-helpers-menu" href="#html-helpers" class="list-group-item heading collapsed">Html Helpers</a><div id="html-helpers-menu"><a href="#html-helpers-button" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">button</a><a href="#html-helpers-resetbutton" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">resetButton</a><a href="#html-helpers-submitbutton" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">submitButton</a><a href="#html-helpers-labelfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">labelFor</a><a href="#html-helpers-firsterrorfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">firstErrorFor</a><a href="#html-helpers-errorsfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">errorsFor</a><a href="#html-helpers-errorsummary" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">errorSummary</a><a href="#html-helpers-textfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">textFieldFor</a><a href="#html-helpers-emailfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">emailFieldFor</a><a href="#html-helpers-textareafor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">textAreaFor</a><a href="#html-helpers-numberfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">numberFieldFor</a><a href="#html-helpers-rangefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">rangeFieldFor</a><a href="#html-helpers-colorfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">colorFieldFor</a><a href="#html-helpers-searchfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">searchFieldFor</a><a href="#html-helpers-datefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">dateFieldFor</a><a href="#html-helpers-timefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">timeFieldFor</a><a href="#html-helpers-telfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">telFieldFor</a><a href="#html-helpers-urlfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">urlFieldFor</a><a href="#html-helpers-hiddenfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">hiddenFieldFor</a><a href="#html-helpers-passwordfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">passwordFieldFor</a><a href="#html-helpers-filefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">fileFieldFor</a><a href="#html-helpers-selectfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">selectFor</a><a href="#html-helpers-checkboxfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">checkboxFor</a><a href="#html-helpers-radiofor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">radioFor</a><a href="#html-helpers-checkboxlistfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">checkboxListFor</a><a href="#html-helpers-radiolistfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">radioListFor</a></div></div><div class="list-group"><a data-toggle="" data-target="#html-templates-menu" href="#html-templates" class="list-group-item heading collapsed">Html Templates</a><div id="html-templates-menu"><a href="#html-templates-location" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Location</a><a href="#html-templates-usage" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Usage</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-html-templates-menu" href="#custom-html-templates" class="list-group-item heading collapsed">Custom Html Templates</a><div id="custom-html-templates-menu"><a href="#custom-html-templates-overriding-defaults" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Overriding Defaults</a><a href="#custom-html-templates-entirely-custom-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Entirely Custom Templates</a></div></div><div class="list-group"><a data-toggle="" data-target="#full-example-menu" href="#full-example" class="list-group-item heading collapsed">Full Example</a><div id="full-example-menu"><a href="#full-example-middleware" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Middleware</a><a href="#full-example-model" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model</a><a href="#full-example-routes" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Routes</a><a href="#full-example-template" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Template</a></div></div><div class="list-group"><a data-toggle="" data-target="#coming-soon-menu" href="#coming-soon" class="list-group-item heading collapsed">Coming Soon</a><div id="coming-soon-menu"><a href="#coming-soon-file-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">File Validation</a><a href="#coming-soon-more-validators" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">More Validators</a><a href="#coming-soon-examples-repository" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Examples Repository</a></div></div><div class="list-group"><a data-toggle="" data-target="#changelog-menu" href="#changelog" class="list-group-item heading collapsed">Changelog</a><div id="changelog-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
+ga('send', 'pageview');</script></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#introduction-menu" href="#introduction" class="list-group-item heading collapsed">Introduction</a><div id="introduction-menu"></div></div><div class="list-group"><a data-toggle="" data-target="#latest-release---0.1.2-menu" href="#latest-release---0.1.2" class="list-group-item heading collapsed">Latest Release - 0.1.2</a><div id="latest-release---0.1.2-menu"><a href="#latest-release---0.1.2-dependency-&amp;-test-status" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Dependency &amp; Test Status</a><a href="#latest-release---0.1.2-contribute" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contribute</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-models-menu" href="#form-models" class="list-group-item heading collapsed">Form Models</a><div id="form-models-menu"><a href="#form-models-model-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Example</a><a href="#form-models-model-field-labels" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Field Labels</a><a href="#form-models-model-defaults" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Defaults</a><a href="#form-models-model-instantiation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model Instantiation</a><a href="#form-models-getfieldidentifier" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getFieldIdentifier</a><a href="#form-models-getlabeltext" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getLabelText</a><a href="#form-models-isrequired" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">isRequired</a><a href="#form-models-adderror" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">addError</a><a href="#form-models-haserrors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">hasErrors</a></div></div><div class="list-group"><a data-toggle="" data-target="#provided-validators-menu" href="#provided-validators" class="list-group-item heading collapsed">Provided Validators</a><div id="provided-validators-menu"><a href="#provided-validators-custom-error-messages" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Custom Error Messages</a><a href="#provided-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#provided-validators-email" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Email</a><a href="#provided-validators-minimum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Minimum Length</a><a href="#provided-validators-maximum-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Maximum Length</a><a href="#provided-validators-length" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Length</a><a href="#provided-validators-numeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Numeric</a><a href="#provided-validators-alpha" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alpha</a><a href="#provided-validators-alphanumeric" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Alphanumeric</a><a href="#provided-validators-url" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Url</a><a href="#provided-validators-ip-address" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">IP Address</a><a href="#provided-validators-credit-card" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Credit Card</a><a href="#provided-validators-equals" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Equals</a><a href="#provided-validators-one-of" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">One Of</a><a href="#provided-validators-contains" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Contains</a><a href="#provided-validators-matches" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Matches</a><a href="#provided-validators-date" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date</a><a href="#provided-validators-date-with-specific-format" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Date with Specific Format</a><a href="#provided-validators-match-another-property-/-field" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Match Another Property / Field</a><a href="#provided-validators-int" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Int</a><a href="#provided-validators-float" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Float</a><a href="#provided-validators-min" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Min</a><a href="#provided-validators-max" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Max</a><a href="#provided-validators-range" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Range</a></div></div><div class="list-group"><a data-toggle="" data-target="#file-validators-menu" href="#file-validators" class="list-group-item heading collapsed">File Validators</a><div id="file-validators-menu"><a href="#file-validators-file-field-mapping" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">File Field Mapping</a><a href="#file-validators-required" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Required</a><a href="#file-validators-min-size" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Min Size</a><a href="#file-validators-max-size" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Max Size</a><a href="#file-validators-mime-types" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">MIME-Types</a><a href="#file-validators-enforce-mime-type-match" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Enforce Mime Type Match</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-validators-menu" href="#custom-validators" class="list-group-item heading collapsed">Custom Validators</a><div id="custom-validators-menu"><a href="#custom-validators-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-request-parsing-menu" href="#form-request-parsing" class="list-group-item heading collapsed">Form Request Parsing</a><div id="form-request-parsing-menu"><a href="#form-request-parsing-example" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Example</a></div></div><div class="list-group"><a data-toggle="" data-target="#form-validation-menu" href="#form-validation" class="list-group-item heading collapsed">Form Validation</a><div id="form-validation-menu"><a href="#form-validation-validation" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Validation</a><a href="#form-validation-passing-objects-to-validators" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Passing Objects to Validators</a><a href="#form-validation-errors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors</a><a href="#form-validation-geterrors" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getErrors</a><a href="#form-validation-getfirsterror" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">getFirstError</a><a href="#form-validation-errors-object" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Errors Object</a></div></div><div class="list-group"><a data-toggle="" data-target="#events-menu" href="#events" class="list-group-item heading collapsed">Events</a><div id="events-menu"><a href="#events-backbone-events" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Backbone Events</a><a href="#events-plaits-specific-events" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Plaits Specific Events</a><a href="#events-beforeparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeParseRequest</a><a href="#events-afterparserequest" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterParseRequest</a><a href="#events-beforevalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">beforeValidate</a><a href="#events-aftervalidate" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">afterValidate</a></div></div><div class="list-group"><a data-toggle="" data-target="#express-middleware-menu" href="#express-middleware" class="list-group-item heading collapsed">Express Middleware</a><div id="express-middleware-menu"><a href="#express-middleware-options" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Options</a></div></div><div class="list-group"><a data-toggle="" data-target="#html-helpers-menu" href="#html-helpers" class="list-group-item heading collapsed">Html Helpers</a><div id="html-helpers-menu"><a href="#html-helpers-button" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">button</a><a href="#html-helpers-resetbutton" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">resetButton</a><a href="#html-helpers-submitbutton" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">submitButton</a><a href="#html-helpers-labelfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">labelFor</a><a href="#html-helpers-firsterrorfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">firstErrorFor</a><a href="#html-helpers-errorsfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">errorsFor</a><a href="#html-helpers-errorsummary" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">errorSummary</a><a href="#html-helpers-textfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">textFieldFor</a><a href="#html-helpers-emailfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">emailFieldFor</a><a href="#html-helpers-textareafor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">textAreaFor</a><a href="#html-helpers-numberfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">numberFieldFor</a><a href="#html-helpers-rangefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">rangeFieldFor</a><a href="#html-helpers-colorfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">colorFieldFor</a><a href="#html-helpers-searchfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">searchFieldFor</a><a href="#html-helpers-datefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">dateFieldFor</a><a href="#html-helpers-timefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">timeFieldFor</a><a href="#html-helpers-telfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">telFieldFor</a><a href="#html-helpers-urlfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">urlFieldFor</a><a href="#html-helpers-hiddenfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">hiddenFieldFor</a><a href="#html-helpers-passwordfieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">passwordFieldFor</a><a href="#html-helpers-filefieldfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">fileFieldFor</a><a href="#html-helpers-selectfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">selectFor</a><a href="#html-helpers-checkboxfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">checkboxFor</a><a href="#html-helpers-radiofor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">radioFor</a><a href="#html-helpers-checkboxlistfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">checkboxListFor</a><a href="#html-helpers-radiolistfor" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">radioListFor</a></div></div><div class="list-group"><a data-toggle="" data-target="#html-templates-menu" href="#html-templates" class="list-group-item heading collapsed">Html Templates</a><div id="html-templates-menu"><a href="#html-templates-location" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Location</a><a href="#html-templates-usage" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Usage</a></div></div><div class="list-group"><a data-toggle="" data-target="#custom-html-templates-menu" href="#custom-html-templates" class="list-group-item heading collapsed">Custom Html Templates</a><div id="custom-html-templates-menu"><a href="#custom-html-templates-overriding-defaults" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Overriding Defaults</a><a href="#custom-html-templates-entirely-custom-templates" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Entirely Custom Templates</a></div></div><div class="list-group"><a data-toggle="" data-target="#full-example-menu" href="#full-example" class="list-group-item heading collapsed">Full Example</a><div id="full-example-menu"><a href="#full-example-middleware" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Middleware</a><a href="#full-example-model" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Model</a><a href="#full-example-routes" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Routes</a><a href="#full-example-template" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Template</a></div></div><div class="list-group"><a data-toggle="" data-target="#coming-soon-menu" href="#coming-soon" class="list-group-item heading collapsed">Coming Soon</a><div id="coming-soon-menu"><a href="#coming-soon-more-validators" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">More Validators</a><a href="#coming-soon-examples-repository" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Examples Repository</a></div></div><div class="list-group"><a data-toggle="" data-target="#changelog-menu" href="#changelog" class="list-group-item heading collapsed">Changelog</a><div id="changelog-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">Plaits.js</h1></div></header><div class="description"></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="introduction">Introduction&nbsp;<a href="#introduction"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits is a form creation, validation and rendering library for Node.js.</p>
 <p>It supports both synchronous and asynchronous validation (via <a href="https://github.com/petkaantonov/bluebird/">Promises</a>), and comes with many built-in validators, many of which are provided
 by the excellent <a href="https://github.com/chriso/validator.js">validator.js library</a>.</p>
 <p>It is intended for use with <a href="http://expressjs.com/">Express</a>, but can be used with other libraries and frameworks too.</p>
 <p>Plaits is inspired by the form validation features found in frameworks such as <a href="http://www.asp.net/mvc/mvc4">.NET MVC</a>,
 and thanks goes to the great work done on the <a href="https://github.com/tgriesser/bookshelf">Bookshelf ORM</a> for additional inspiration and helping with some underlying code principles.</p>
 <p>The source is available on <a href="https://github.com/Persata/plaits">GitHub</a>, and it comes with a large suite of <a href="https://travis-ci.org/Persata/plaits">unit tests</a>.</p>
-</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="latest-release---0.1.1">Latest Release - 0.1.1&nbsp;<a href="#latest-release---0.1.1"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Version 0.1.1.</p>
+</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="latest-release---0.1.2">Latest Release - 0.1.2&nbsp;<a href="#latest-release---0.1.2"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Version 0.1.2.</p>
 <p>View the <a href="#changelog">Changelog</a> below.</p>
-<h4 id="latest-release---0.1.1-dependency-&amp;-test-status">Dependency &amp; Test Status&nbsp;<a href="#latest-release---0.1.1-dependency-&amp;-test-status"><i class="fa fa-link"></i></a></h4><p>Build Status - <a href="https://travis-ci.org/Persata/plaits"><img src="https://travis-ci.org/Persata/plaits.svg" alt="Build Status"></a></p>
+<h4 id="latest-release---0.1.2-dependency-&amp;-test-status">Dependency &amp; Test Status&nbsp;<a href="#latest-release---0.1.2-dependency-&amp;-test-status"><i class="fa fa-link"></i></a></h4><p>Build Status - <a href="https://travis-ci.org/Persata/plaits"><img src="https://travis-ci.org/Persata/plaits.svg" alt="Build Status"></a></p>
 <p>Dependencies - <a href="https://gemnasium.com/Persata/plaits"><img src="https://gemnasium.com/Persata/plaits.svg" alt="Dependency Status"></a></p>
 <p>Code Coverage - <a href="https://coveralls.io/r/Persata/plaits?branch=master"><img src="https://img.shields.io/coveralls/Persata/plaits.svg" alt="Coverage Status"></a></p>
-<h4 id="latest-release---0.1.1-contribute">Contribute&nbsp;<a href="#latest-release---0.1.1-contribute"><i class="fa fa-link"></i></a></h4><p>Please feel free to report bugs and suggest features you’d like to see on the <a href="https://github.com/Persata/plaits/issues">Plaits GitHub Issues Page</a>,
+<h4 id="latest-release---0.1.2-contribute">Contribute&nbsp;<a href="#latest-release---0.1.2-contribute"><i class="fa fa-link"></i></a></h4><p>Please feel free to report bugs and suggest features you’d like to see on the <a href="https://github.com/Persata/plaits/issues">Plaits GitHub Issues Page</a>,
 or send tweets to <a href="https://twitter.com/persata">@persata</a>.</p>
 </div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="form-models">Form Models&nbsp;<a href="#form-models"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits models are simply <a href="http://backbonejs.org/">Backbone</a> models with different functionality.</p>
 <p>A model <strong>must</strong> be given a name, and a list of fields. It also takes an optional list of validators <a href="#provided-validators">(examples later)</a>.</p>
@@ -316,16 +315,19 @@ for example the string ‘{{label}} must be a minimum of 10 characters’ could 
 <h5 id="arguments">Arguments</h5>
 <p>It takes between 1 and 3 arguments, as follows:</p>
 <ul>
-<li>1 Argument<ul>
+<li><p>1 Argument</p>
+<ul>
 <li>An exact length for the string</li>
 </ul>
 </li>
-<li>2 Arguments<ul>
+<li><p>2 Arguments</p>
+<ul>
 <li>Argument 1: A minimum OR exact length for the string</li>
 <li>Argument 2: A maximum length for the string OR a custom error message</li>
 </ul>
 </li>
-<li>3 Arguments<ul>
+<li><p>3 Arguments</p>
+<ul>
 <li>Argument 1: A minimum length for the string</li>
 <li>Argument 2: A maximum length for the string</li>
 <li>Argument 3: A custom error message</li>
@@ -343,16 +345,19 @@ for example the string ‘{{label}} must be a minimum of 10 characters’ could 
 <h5 id="arguments">Arguments</h5>
 <p>It takes between 0 and 2 arguments, as follows:</p>
 <ul>
-<li>0 Arguments:<ul>
+<li><p>0 Arguments:</p>
+<ul>
 <li>Default options from below, default error message returned.</li>
 </ul>
 </li>
-<li>1 Argument, either:<ul>
+<li><p>1 Argument, either:</p>
+<ul>
 <li>An object specifying the options to use for validation (see below), or</li>
 <li>A custom error message</li>
 </ul>
 </li>
-<li>2 Arguments<ul>
+<li><p>2 Arguments</p>
+<ul>
 <li>Argument 1: An object specifying the options to use for validation (see below)</li>
 <li>Argument 2: A custom error message</li>
 </ul>
@@ -373,16 +378,19 @@ for example the string ‘{{label}} must be a minimum of 10 characters’ could 
 <h5 id="arguments">Arguments</h5>
 <p>It takes between 0 and 2 arguments, as follows:</p>
 <ul>
-<li>0 Arguments:<ul>
+<li><p>0 Arguments:</p>
+<ul>
 <li>IP Address matching either version 4 or version 6, default error message returned.</li>
 </ul>
 </li>
-<li>1 Argument, either:<ul>
+<li><p>1 Argument, either:</p>
+<ul>
 <li>An int (not a string!) that describes the version of IP address (4 or 6), or,</li>
 <li>A custom error message</li>
 </ul>
 </li>
-<li>2 Arguments<ul>
+<li><p>2 Arguments</p>
+<ul>
 <li>Argument 1: An int (not a string!) that describes the version of IP address (4 or 6)</li>
 <li>Argument 2: A custom error message</li>
 </ul>
@@ -423,6 +431,52 @@ It can be of any format, even a Unix timestamp.</p>
 <pre><code><span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(max, [customErrorMessage])</span></span>
 </code></pre><h4 id="provided-validators-range">Range&nbsp;<a href="#provided-validators-range"><i class="fa fa-link"></i></a></h4><p>This validator will check that the value provided to the form is between or equal to the minimum and maximum values given.</p>
 <pre><code><span class="hljs-function"><span class="hljs-title">range</span><span class="hljs-params">(min, max, [customErrorMessage])</span></span>
+</code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="file-validators">File Validators&nbsp;<a href="#file-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits allows for the validation of file uploads, with some setup (see <a href="#file-validators-file-field-mapping">File Field Mapping</a>)</p>
+<h4 id="file-validators-file-field-mapping">File Field Mapping&nbsp;<a href="#file-validators-file-field-mapping"><i class="fa fa-link"></i></a></h4><p>Due to the various methods &amp; libraries for handling file uploads in Node / Express, the resulting file fields on a file object differ depending on which library is being used.</p>
+<p>For example, <a href="https://github.com/andrewrk/connect-multiparty">connect-multiparty</a> will use <code>originalFilename</code> and <code>type</code>, whereas <a href="https://github.com/expressjs/multer">multer</a>
+will have equivalent fields of <code>originalname</code> and <code>mimetype</code>.</p>
+<p>In order to allow the validation of file uploads to use one consistent API, Plaits allows for the mapping of file fields to allow the validators to look up which fields to use.</p>
+<p>In the case of Multer:</p>
+<pre><code><span class="hljs-comment">// Use Multer</span>
+<span class="hljs-tag">app</span><span class="hljs-class">.use</span>(<span class="hljs-function">multer</span>({<span class="hljs-attribute">dest</span>: <span class="hljs-string">'/tmp/uploads/'</span>}));
+
+<span class="hljs-comment">// Set Multer Mappings</span>
+<span class="hljs-tag">Plaits</span><span class="hljs-class">.setValidatorConfig</span>({<span class="hljs-attribute">fileFieldMappings</span>: Plaits.FileFieldMappings.Multer});
+</code></pre><p>and for Multiparty:</p>
+<pre><code><span class="hljs-comment">// Use Multiparty</span>
+<span class="hljs-attribute">app</span>.<span class="hljs-function">use</span>(<span class="hljs-function">multipart</span>());
+
+<span class="hljs-comment">// Set Multiparty Config</span>
+<span class="hljs-tag">Plaits</span><span class="hljs-class">.setValidatorConfig</span>({<span class="hljs-attribute">fileFieldMappings</span>: Plaits.FileFieldMappings.Multiparty});
+</code></pre><p>For custom file field mapping (in the case you’ve written the form handler yourself / are using another library), you can specify the mappings to suit.
+For example:</p>
+<pre><code><span class="hljs-comment">// Mappings</span>
+<span class="hljs-keyword">var</span> fileFieldMappings = {
+    originalFilename: <span class="hljs-symbol">'original</span>-file-name',
+    <span class="hljs-class"><span class="hljs-keyword">type</span>:</span> <span class="hljs-symbol">'file</span>-mime-<span class="hljs-class"><span class="hljs-keyword">type</span>',
+</span>    size: <span class="hljs-symbol">'file</span>-size'
+};
+<span class="hljs-comment">// Set Mapping Config</span>
+<span class="hljs-type">Plaits</span>.setValidatorConfig({fileFieldMappings: fileFieldMappings);
+</code></pre><h4 id="file-validators-required">Required&nbsp;<a href="#file-validators-required"><i class="fa fa-link"></i></a></h4><p>Whether this file field is required.</p>
+<p>This will check if the uploaded file has a name and a size greater than 0 bytes.</p>
+<p>When generating labels using the Html helpers and templates, the label text will be appended with an asterisk.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">required</span><span class="hljs-params">([customErrorMessage])</span></span>
+</code></pre><h4 id="file-validators-min-size">Min Size&nbsp;<a href="#file-validators-min-size"><i class="fa fa-link"></i></a></h4><p>This will check that the file being uploaded is greater than the minimum size provided to the function.</p>
+<p>The minimum size value can given in either a numeric format, e.g. 60000 for bytes, or a string that follows JEDEC standards, e.g. <code>60kB</code>, <code>0.5mb</code> etc.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">minSize</span><span class="hljs-params">(minSize, [customErrorMessage])</span></span>
+</code></pre><h4 id="file-validators-max-size">Max Size&nbsp;<a href="#file-validators-max-size"><i class="fa fa-link"></i></a></h4><p>This will check that the file being uploaded is smaller than the maximum size provided to the function.</p>
+<p>The maximum size value can given in either a numeric format, e.g. 60000 for bytes, or a string that follows JEDEC standards, e.g. <code>60kB</code>, <code>0.5mb</code> etc.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">maxSize</span><span class="hljs-params">(maxSize, [customErrorMessage])</span></span>
+</code></pre><h4 id="file-validators-mime-types">MIME-Types&nbsp;<a href="#file-validators-mime-types"><i class="fa fa-link"></i></a></h4><p>This will check that the file being uploaded is one of the MIME-Types provided to the function.</p>
+<p>The function should be passed a string for a single MIME-Type, or an array of allowed MIME-Types.</p>
+<p>The MIME-Type value given to the function can include wildcards if needed, for example <code>[&#39;image/*&#39;]</code>, <code>[&#39;audio/*&#39;]</code>, or can be an exact MIME-Type such as <code>[&#39;application/rtf&#39;]</code>.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">mimeTypes</span><span class="hljs-params">(mimeTypes, [customErrorMessage])</span></span>
+</code></pre><h4 id="file-validators-enforce-mime-type-match">Enforce Mime Type Match&nbsp;<a href="#file-validators-enforce-mime-type-match"><i class="fa fa-link"></i></a></h4><p>Malicious users may attempt to upload files to your forms which are not what they seem - for example, uploading a file with extension ‘.jpg’ that is actually a ‘.zip’ file etc.</p>
+<p>This validator uses <a href="https://github.com/mscdex/mmmagic">mmmagic</a> bindings to <a href="http://www.darwinsys.com/file/">libmagic</a> to inspect the uploaded file and ensure that the file’s MIME-Type
+actually matches its contents.</p>
+<p>Due to the async nature of the libmagic bindings, this validator must be used with the <code>validate()</code> method on the form, as <code>validateSync()</code> will not suffice.</p>
+<pre><code><span class="hljs-function"><span class="hljs-title">enforceMimeMatch</span><span class="hljs-params">([customErrorMessage])</span></span>
 </code></pre></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="custom-validators">Custom Validators&nbsp;<a href="#custom-validators"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Plaits provides the ability to define custom validation functions for your form models.</p>
 <p>The returned result of the custom validation function will be cast to a promise,
 so the validation function can be synchronous or asynchronous depending on the requirements of the validation.</p>
@@ -541,13 +595,20 @@ registerForm.validate().then(<span class="hljs-keyword">function</span> (result)
 <h4 id="events-backbone-events">Backbone Events&nbsp;<a href="#events-backbone-events"><i class="fa fa-link"></i></a></h4><p>Since Plaits models are essentially glorified <a href="http://backbonejs.org/">Backbone</a> models, you have access to all the underlying event functionality
 that Backbone provides. See the Backbone documentation for each of:</p>
 <ul>
-<li><a href="http://backbonejs.org/#Events-on">on</a></li>
-<li><a href="http://backbonejs.org/#Events-off">off</a></li>
-<li><a href="http://backbonejs.org/#Events-trigger">trigger</a></li>
-<li><a href="http://backbonejs.org/#Events-once">once</a></li>
-<li><a href="http://backbonejs.org/#Events-listenTo">listenTo</a></li>
-<li><a href="http://backbonejs.org/#Events-stopListening">stopListening</a></li>
-<li><a href="http://backbonejs.org/#Events-listenToOnce">listenToOnce</a></li>
+<li><p><a href="http://backbonejs.org/#Events-on">on</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-off">off</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-trigger">trigger</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-once">once</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-listenTo">listenTo</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-stopListening">stopListening</a></p>
+</li>
+<li><p><a href="http://backbonejs.org/#Events-listenToOnce">listenToOnce</a></p>
+</li>
 </ul>
 <h4 id="events-plaits-specific-events">Plaits Specific Events&nbsp;<a href="#events-plaits-specific-events"><i class="fa fa-link"></i></a></h4><p>Events use <a href="https://github.com/bookshelf/trigger-then">trigger-then</a>, allowing for asynchronous behaviour in your event listeners if necessary.
 Ensure however, that if you are using asynchronous events that you use the asynchronous versions of <code>parseRequest</code> and <code>validate</code>.</p>
@@ -827,17 +888,21 @@ block <span class="hljs-attribute">content</span>
         !=Plaits<span class="hljs-class">.Html</span><span class="hljs-class">.Template</span><span class="hljs-class">.submit</span>()
 </code></pre><p>And that is enough to render the form, handle the POST request, validate the form and display any validation errors to the user.</p>
 </div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="coming-soon">Coming Soon&nbsp;<a href="#coming-soon"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Here are a few things I plan on incorporating or working on the future.</p>
-<h4 id="coming-soon-file-validation">File Validation&nbsp;<a href="#coming-soon-file-validation"><i class="fa fa-link"></i></a></h4><p>Any good form library should be able to validate uploaded files.
-I’ve already written a lot of this functionality (see <a href="https://github.com/Persata/plaits/blob/master/lib/validators/file.js">lib/validators/file.js</a>).</p>
-<p>Unfortunately, the implementation on which I based these used <a href="https://github.com/andrewrk/connect-multiparty">connect-multiparty</a>,
-which is now deprecated and the use of which is being advised against (for <a href="http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html">some good reasons</a>).</p>
-<p>I am looking into alternative implementations.</p>
 <h4 id="coming-soon-more-validators">More Validators&nbsp;<a href="#coming-soon-more-validators"><i class="fa fa-link"></i></a></h4><p>Extra provided validators are always useful to prevent people from having to write their own, especially if tested and approved, for example:</p>
 <ul>
 <li>Date Range Validator (Dates between X and Y, dates only before Y, etc.)</li>
 </ul>
 <h4 id="coming-soon-examples-repository">Examples Repository&nbsp;<a href="#coming-soon-examples-repository"><i class="fa fa-link"></i></a></h4><p>A GitHub repository with some examples of using Plaits in different circumstances would be useful.</p>
-</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="changelog">Changelog&nbsp;<a href="#changelog"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h5 id="0-1-1">0.1.1</h5>
+</div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="changelog">Changelog&nbsp;<a href="#changelog"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h5 id="0-1-2">0.1.2</h5>
+<ul>
+<li><p>Added file validation support (required, minSize, maxSize, mimeTypes &amp; enforceMimeMatch - see <a href="#file-validators">File Validators</a>)</p>
+</li>
+<li><p>Added support for mapping file field values to their respective fields (see <a href="#file-validators-file-field-mapping">File Field Mapping</a>)</p>
+</li>
+<li><p>Updated various dependencies (Namely lodash to v3)</p>
+</li>
+</ul>
+<h5 id="0-1-1">0.1.1</h5>
 <ul>
 <li>Added New Validators<ul>
 <li><a href="#provided-validators-min">Min</a></li>
@@ -850,7 +915,7 @@ which is now deprecated and the use of which is being advised against (for <a hr
 <ul>
 <li>Initial Release</li>
 </ul>
-</div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 21 Oct 2014</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+</div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 02 Feb 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
 </div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
   if (location.protocol === 'file:') {

@@ -15,9 +15,9 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
-# Group Latest Release - 0.1.1
+# Group Latest Release - 0.1.2
 
-Version 0.1.1.
+Version 0.1.2.
 
 View the [Changelog](#changelog) below.
 
@@ -440,6 +440,101 @@ max(max, [customErrorMessage])
 This validator will check that the value provided to the form is between or equal to the minimum and maximum values given.
 ```
 range(min, max, [customErrorMessage])
+```
+
+# Group File Validators
+
+Plaits allows for the validation of file uploads, with some setup (see [File Field Mapping](#file-validators-file-field-mapping))
+
+## File Field Mapping [/]
+
+Due to the various methods & libraries for handling file uploads in Node / Express, the resulting file fields on a file object differ depending on which library is being used.
+
+For example, [connect-multiparty](https://github.com/andrewrk/connect-multiparty) will use ``originalFilename`` and ``type``, whereas [multer](https://github.com/expressjs/multer)
+will have equivalent fields of ``originalname`` and ``mimetype``.
+
+In order to allow the validation of file uploads to use one consistent API, Plaits allows for the mapping of file fields to allow the validators to look up which fields to use.
+
+In the case of Multer:
+
+```
+// Use Multer
+app.use(multer({dest: '/tmp/uploads/'}));
+
+// Set Multer Mappings
+Plaits.setValidatorConfig({fileFieldMappings: Plaits.FileFieldMappings.Multer});
+```
+
+and for Multiparty:
+
+```
+// Use Multiparty
+app.use(multipart());
+
+// Set Multiparty Config
+Plaits.setValidatorConfig({fileFieldMappings: Plaits.FileFieldMappings.Multiparty});
+```
+
+For custom file field mapping (in the case you've written the form handler yourself / are using another library), you can specify the mappings to suit.
+For example:
+
+```
+// Mappings
+var fileFieldMappings = {
+    originalFilename: 'original-file-name',
+    type: 'file-mime-type',
+    size: 'file-size'
+};
+// Set Mapping Config
+Plaits.setValidatorConfig({fileFieldMappings: fileFieldMappings);
+```
+
+## Required [/]
+Whether this file field is required.
+
+This will check if the uploaded file has a name and a size greater than 0 bytes.
+
+When generating labels using the Html helpers and templates, the label text will be appended with an asterisk.
+```
+required([customErrorMessage])
+```
+
+## Min Size [/]
+This will check that the file being uploaded is greater than the minimum size provided to the function.
+
+The minimum size value can given in either a numeric format, e.g. 60000 for bytes, or a string that follows JEDEC standards, e.g. ``60kB``, ``0.5mb`` etc.
+```
+minSize(minSize, [customErrorMessage])
+```
+
+## Max Size [/]
+This will check that the file being uploaded is smaller than the maximum size provided to the function.
+
+The maximum size value can given in either a numeric format, e.g. 60000 for bytes, or a string that follows JEDEC standards, e.g. ``60kB``, ``0.5mb`` etc.
+```
+maxSize(maxSize, [customErrorMessage])
+```
+
+## MIME-Types [/]
+This will check that the file being uploaded is one of the MIME-Types provided to the function.
+
+The function should be passed a string for a single MIME-Type, or an array of allowed MIME-Types.
+
+The MIME-Type value given to the function can include wildcards if needed, for example ``['image/*']``, ``['audio/*']``, or can be an exact MIME-Type such as ``['application/rtf']``.
+```
+mimeTypes(mimeTypes, [customErrorMessage])
+```
+
+## Enforce Mime Type Match [/]
+Malicious users may attempt to upload files to your forms which are not what they seem - for example, uploading a file with extension '.jpg' that is actually a '.zip' file etc.
+
+This validator uses [mmmagic](https://github.com/mscdex/mmmagic) bindings to [libmagic](http://www.darwinsys.com/file/) to inspect the uploaded file and ensure that the file's MIME-Type
+actually matches its contents.
+
+Due to the async nature of the libmagic bindings, this validator must be used with the ``validate()`` method on the form, as ``validateSync()`` will not suffice.
+
+```
+enforceMimeMatch([customErrorMessage])
 ```
 
 # Group Custom Validators
@@ -1176,16 +1271,6 @@ And that is enough to render the form, handle the POST request, validate the for
 
 Here are a few things I plan on incorporating or working on the future.
 
-## File Validation [/]
-
-Any good form library should be able to validate uploaded files.
-I've already written a lot of this functionality (see [lib/validators/file.js](https://github.com/Persata/plaits/blob/master/lib/validators/file.js)).
-
-Unfortunately, the implementation on which I based these used [connect-multiparty](https://github.com/andrewrk/connect-multiparty),
-which is now deprecated and the use of which is being advised against (for [some good reasons](http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html)).
-
-I am looking into alternative implementations.
-
 ## More Validators [/]
 
 Extra provided validators are always useful to prevent people from having to write their own, especially if tested and approved, for example:
@@ -1197,6 +1282,11 @@ Extra provided validators are always useful to prevent people from having to wri
 A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
+
+##### 0.1.2
+  - Added file validation support (required, minSize, maxSize, mimeTypes & enforceMimeMatch - see [File Validators](#file-validators))
+  - Added support for mapping file field values to their respective fields (see [File Field Mapping](#file-validators-file-field-mapping))
+  - Updated various dependencies (Namely lodash to v3)
 
 ##### 0.1.1
   - Added New Validators
