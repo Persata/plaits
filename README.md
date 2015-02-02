@@ -22,7 +22,7 @@ The source is available on [GitHub](https://github.com/Persata/plaits), and it c
 Example Model
 -------------
 
-```
+```javascript
 // Require Plaits
 var Plaits = require('plaits');
 
