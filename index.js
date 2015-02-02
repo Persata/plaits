@@ -1,5 +1,8 @@
 'use strict';
 
+// Lodash
+var _ = require('lodash');
+
 // Bluebird
 /* jshint ignore:start */
 var Promise = require('bluebird');
@@ -10,6 +13,9 @@ var Model = require('./lib/model');
 
 // Validators
 var Validators = require('./lib/validators');
+
+// File Fild Mappings
+var FileFieldMappings = require('./lib/mappings');
 
 // Express Middleware
 var ExpressMiddleware = require('./lib/middleware');
@@ -49,10 +55,24 @@ var Plaits = (function () {
     Plaits.ExpressMiddleware = ExpressMiddleware;
 
     /**
+     * File Field Mappings
+     * @type {*|exports}
+     */
+    Plaits.FileFieldMappings = FileFieldMappings;
+
+    /**
      * Extend
      * @type {function(): child|exports}
      */
     Model.extend = require('simple-extend');
+
+    /**
+     * Set Validator Config
+     * @param validatorConfig
+     */
+    Plaits.setValidatorConfig = function (validatorConfig) {
+        _.extend(this.Validators.config, validatorConfig);
+    };
 
     // Return
     return Plaits;

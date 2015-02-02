@@ -76,6 +76,16 @@ var fileGoodValuesRequestStubIncorrectMimeInspect = {files: {profileForm_avatar:
 var fileGoodValuesRequestStubPromiseReject = {files: {profileForm_avatar: {name: 'plaits-logo.jpg', originalFilename: 'plaits-logo.jpg', path: 'test/files/plaits-logo.jpg', size: 166258, type: 'image/jpeg'}}};
 
 /**
+ * Before Each -> Set File Field Mappings to Default
+ */
+beforeEach(function (done) {
+    // Set Default Mappings
+    Plaits.setValidatorConfig({fileFieldMappings: Plaits.FileFieldMappings.Default});
+    // Done
+    done();
+});
+
+/**
  * Plaits File Tests
  */
 describe('Plaits File Validators', function () {
