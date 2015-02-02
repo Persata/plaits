@@ -36,7 +36,8 @@ var RegisterForm = Plaits.Model.extend(
       'username',
       'email_address',
       'password',
-      'confirm_password'
+      'confirm_password',
+      'avatar'
     ],
     // Validators
     validators: {
