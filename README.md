@@ -68,3 +68,71 @@ var RegisterForm = Plaits.Model.extend(
 // Export Form
 module.exports = RegisterForm;
 ```
+
+Use Middleware
+--------------
+
+```
+// Require Plaits
+var Plaits = require('plaits');
+
+// Plaits Middleware
+app.use(Plaits.ExpressMiddleware());
+```
+
+Register Page Template
+-----------------
+```
+extends layout
+
+block content
+    form(method='POST')
+        !=Plaits.Html.Template.text(registerForm, 'username')
+        !=Plaits.Html.Template.email(registerForm, 'email')
+        !=Plaits.Html.Template.password(registerForm, 'password')
+        !=Plaits.Html.Template.password(registerForm, 'confirm_password')
+        !=Plaits.Html.Template.submit()
+```
+
+Register Controller
+------------------
+
+```
+// Require Form
+var RegisterForm = require('../forms/register');
+
+// Account Register Route - GET
+router.get('/account/register', function (req, res) {
+    // New Form
+    var registerForm = new RegisterForm();
+    // Render Template, Passing Form
+    res.render('account/register', {
+        registerForm: registerForm
+    });
+});
+
+// Account Register Route - POST
+router.post('/account/register', function (req, res) {
+    // New Form
+    var registerForm = new RegisterForm();
+    // Parse Request & Validate
+    registerForm.parseRequestSync(req).validate().then(function (result) {
+        // Valid?
+        if (result) {
+            // Do Register / Database Stuff Here
+            // ...
+            // Redirect
+            res.redirect('/account/register/success');
+        } else {
+            // Invalid, Re-Render The Template
+            res.render('account/register', {
+                registerForm: registerForm
+            });
+        }
+    }).catch(function (e) {
+        // Something Went Horribly Wrong, Caught A Rejected Promise
+        res.json(e);
+    });
+});
+
+```
