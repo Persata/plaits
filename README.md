@@ -67,12 +67,12 @@ var RegisterForm = Plaits.Model.extend(
 
 // Export Form
 module.exports = RegisterForm;
-```
+```javascript
 
 Use Middleware
 --------------
 
-```
+```javascript
 // Require Plaits
 var Plaits = require('plaits');
 
@@ -82,7 +82,8 @@ app.use(Plaits.ExpressMiddleware());
 
 Register Page Template
 -----------------
-```
+
+```jade
 extends layout
 
 block content
@@ -97,7 +98,7 @@ block content
 Register Controller
 ------------------
 
-```
+```javascript
 // Require Form
 var RegisterForm = require('../forms/register');
 
