@@ -227,7 +227,7 @@ describe('Plaits File Validators', function () {
      */
     it('should reject the promise if there is an issue with LibMagic', function (done) {
         new ProfileFormEnforceMimeType().parseRequestSync(fileGoodValuesRequestStubPromiseReject).validate().then().catch(function (error) {
-            error.message.should.startWith('cannot stat');
+            error.should.be.an.instanceOf(Error);
         }).then(done, done);
     });
 });
