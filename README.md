@@ -72,7 +72,7 @@ module.exports = RegisterForm;
 Use Middleware
 --------------
 
-```
+```javascript
 // Require Plaits
 var Plaits = require('plaits');
 
@@ -82,7 +82,8 @@ app.use(Plaits.ExpressMiddleware());
 
 Register Page Template
 -----------------
-```
+
+```jade
 extends layout
 
 block content
@@ -97,7 +98,7 @@ block content
 Register Controller
 ------------------
 
-```
+```javascript
 // Require Form
 var RegisterForm = require('../forms/register');
 
