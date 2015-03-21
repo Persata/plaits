@@ -67,7 +67,7 @@ var RegisterForm = Plaits.Model.extend(
 
 // Export Form
 module.exports = RegisterForm;
-```
+```javascript
 
 Use Middleware
 --------------
