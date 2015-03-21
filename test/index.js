@@ -14,8 +14,7 @@ var modelName = 'loginForm';
  * @type {{email_address: string, password: string}}
  */
 var modelLabels = {
-    email_address: 'Your Email Address',
-    password: 'Your Password'
+    email_address: 'Your Email Address'
 };
 
 
@@ -150,7 +149,7 @@ describe('Plaits', function () {
     it('should have labels', function (done) {
         var loginForm = new LoginForm();
         loginForm.getLabelText('email_address').should.equal('Your Email Address');
-        loginForm.getLabelText('password').should.equal('Your Password');
+        loginForm.getLabelText('password').should.equal('Password');
         done();
     });
 
