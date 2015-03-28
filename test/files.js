@@ -223,6 +223,17 @@ describe('Plaits File Validators', function () {
     });
 
     /**
+     * File Upload Checking
+     */
+    it('should allow for easily checking if a file was uploaded', function (done) {
+        // True -> File Uploaded
+        new ProfileForm().parseRequestSync(fileGoodValuesRequestStub).hasFile('avatar').should.equal(true);
+        // False -> Empty Form Submission
+        new ProfileForm().parseRequestSync(filesBadValueRequestStubNoFile).hasFile('avatar').should.equal(false);
+        done();
+    });
+
+    /**
      * Enforce MIME Match - Exception - Promise Rejection
      */
     it('should reject the promise if there is an issue with LibMagic', function (done) {
