@@ -92,6 +92,7 @@ block content
         !=Plaits.Html.Template.email(registerForm, 'email')
         !=Plaits.Html.Template.password(registerForm, 'password')
         !=Plaits.Html.Template.password(registerForm, 'confirm_password')
+        !=Plaits.Html.Template.file(registerForm, 'avatar')
         !=Plaits.Html.Template.submit()
 ```
 
