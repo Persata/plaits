@@ -15,9 +15,9 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
-# Group Latest Release - 0.1.3
+# Group Latest Release - 0.1.6
 
-Version 0.1.3.
+Version 0.1.6.
 
 View the [Changelog](#changelog) below.
 
@@ -210,6 +210,19 @@ model.hasErrors(field);
 // Example
 console.log(registerForm.hasErrors('username'));
 // => false
+```
+
+## hasFile [/]
+
+Check whether the specified field has a file uploaded to it - follows the same principles as file required validation, i.e. not undefined and size > 0.
+
+```
+// Check For File
+model.hasFile(field);
+
+// Example
+console.log(registerForm.hasFile('avatar'));
+// => true
 ```
 
 # Group Provided Validators
@@ -1282,6 +1295,18 @@ Extra provided validators are always useful to prevent people from having to wri
 A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
+
+##### 0.1.6
+  - Fixed an issue with the templates for multiple Express middleware instances getting mixed up
+
+##### 0.1.5
+  - Added new function, `model.hasFile(field)`, to easily check if a file has been submitted as part of the form request
+  - Fixed issue with Plaits template function calls interfering with Express `res.locals`
+  - Fixed issue with checkbox value comparisons not always comparing variable types properly
+
+##### 0.1.4
+  - Fixed issue with labels returning undefined
+  - Updated various dependencies
 
 ##### 0.1.3
   - Fixed issue with mime match validator and file field mapping
