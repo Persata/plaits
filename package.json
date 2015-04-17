@@ -1,7 +1,7 @@
 {
   "name": "plaits",
   "description": "Facilitates the creation, validation and rendering of forms in Node applications.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
     "url": "git://github.com/persata/plaits.git"
@@ -39,7 +39,7 @@
   "devDependencies": {
     "connect-multiparty": "^1.2.5",
     "express": "^4.10.6",
-    "fs-extra": "^0.16.3",
+    "fs-extra": "^0.18.0",
     "istanbul": "^0.3.5",
     "knex": "^0.7.3",
     "mocha": "^2.0.1",
