@@ -65,6 +65,9 @@ var RegisterForm = Plaits.Model.extend({
         25: 25,
         26: 26,
         27: 27
+    },
+    ageOptionsEscaped: {
+        25: '25</option></select><script>alert("Hello, XSS!");</script><option>'
     }
 });
 
@@ -260,6 +263,12 @@ describe('Plaits Express Middleware & HTML Helper', function () {
             var textAreaWithValue = res.locals.Plaits.Html.textAreaFor(registerForm, 'job_description');
             // Test
             textAreaWithValue.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description" class="required">Web Developer</textarea>');
+            // Set Value That Needs To Be Escaped
+            registerForm.set('job_description', '</textarea><script>alert("Hello, XSS!");</script><textarea>');
+            // Generate
+            var textAreaWithEscapedValue = res.locals.Plaits.Html.textAreaFor(registerForm, 'job_description');
+            // Test
+            textAreaWithEscapedValue.should.equal('<textarea name="registerForm_job_description" id="registerForm_job_description" class="required">&lt;/textarea&gt;&lt;script&gt;alert(&quot;Hello, XSS!&quot;);&lt;/script&gt;&lt;textarea&gt;</textarea>');
             // End Response
             res.end();
         });
@@ -555,6 +564,15 @@ describe('Plaits Express Middleware & HTML Helper', function () {
             selectWithValue.should.equal('<select name="registerForm_age" class="required" id="registerForm_age">\n' +
             '<option value="">Choose Your Age</option>\n' +
             '<option value="25" selected="selected">Twenty Five</option>\n' +
+            '</select>');
+
+            // Select With Escaped Values
+            registerForm.set('age', 25);
+            // Generate
+            var selectWithEscapedValue = res.locals.Plaits.Html.selectFor(registerForm, 'age', registerForm.ageOptionsEscaped);
+            // Test
+            selectWithEscapedValue.should.equal('<select name="registerForm_age" class="required" id="registerForm_age">\n' +
+            '<option value="25" selected="selected">25&lt;/option&gt;&lt;/select&gt;&lt;script&gt;alert(&quot;Hello, XSS!&quot;);&lt;/script&gt;&lt;option&gt;</option>\n' +
             '</select>');
 
             // Select With Errors
