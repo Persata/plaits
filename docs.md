@@ -15,9 +15,9 @@ and thanks goes to the great work done on the [Bookshelf ORM](https://github.com
 
 The source is available on [GitHub](https://github.com/Persata/plaits), and it comes with a large suite of [unit tests](https://travis-ci.org/Persata/plaits).
 
-# Group Latest Release - 0.1.6
+# Group Latest Release - 0.1.10
 
-Version 0.1.6.
+Version 0.1.10.
 
 View the [Changelog](#changelog) below.
 
@@ -1295,6 +1295,19 @@ Extra provided validators are always useful to prevent people from having to wri
 A GitHub repository with some examples of using Plaits in different circumstances would be useful.
 
 # Group Changelog
+
+##### 0.1.10
+  - Fixed issue with radio input value comparisons incorrectly comparing types
+  - Updated various dependencies
+
+##### 0.1.9
+  - Fixed an issue with selected values on select fields where the 'multiple' attribute was set
+
+##### 0.1.8
+  - Fixed an issue with escaping text on certain form elements
+
+##### 0.1.7
+  - Fixed an issue with attempted MIME type checking when nothing was uploaded
 
 ##### 0.1.6
   - Fixed an issue with the templates for multiple Express middleware instances getting mixed up
