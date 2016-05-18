@@ -1,7 +1,17 @@
 language: node_js
-node_js:
-  - "4"
-  - "0.12"
-  - "0.10"
+matrix:
+  include:
+    - node_js: "0.10"
+    - node_js: "0.12"
+    - node_js: "4"
+  fast_finish: true
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 script: "npm run-script test-travis"
 after_script: "npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
