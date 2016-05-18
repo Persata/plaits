@@ -1,7 +1,7 @@
 {
   "name": "plaits",
   "description": "Facilitates the creation, validation and rendering of forms in Node applications.",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "repository": {
     "type": "git",
     "url": "git://github.com/persata/plaits.git"
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "backbone": "^1.1.2",
-    "bluebird": "^3.1.1",
+    "bluebird": "~3.4.0",
     "inflection": "^1.4.2",
     "inherits": "~2.0.1",
     "jade": "^1.8.2",
@@ -34,7 +34,7 @@
     "moment": "^2.11.1",
     "simple-extend": "^0.1.0",
     "trigger-then": "~0.3.0",
-    "validator": "^4.5.0"
+    "validator": "~4.9.0"
   },
   "devDependencies": {
     "connect-multiparty": "^1.2.5",
